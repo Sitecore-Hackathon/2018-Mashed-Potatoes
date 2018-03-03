@@ -7,16 +7,8 @@
 namespace Sitecore.Commerce.Engine
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Threading.Tasks;
-
-    using Core;
-    using Core.Commands;
-    using Core.Logging;
-
-    using Framework.Diagnostics;
-    using Framework.Rules;
 
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.Extensibility;
@@ -35,10 +27,19 @@ namespace Sitecore.Commerce.Engine
 
     using Newtonsoft.Json.Serialization;
 
-    using Provider.FileSystem;
-
     using Serilog;
     using Serilog.Events;
+
+    using Core;
+    using Core.Commands;
+    using Core.Logging;
+    using Provider.FileSystem;
+    using Framework.Diagnostics;
+    using Framework.Rules;
+
+    using System.Collections.Generic;
+
+    using Environment = System.Environment;
 
     /// <summary>
     /// Defines the engine startup.
