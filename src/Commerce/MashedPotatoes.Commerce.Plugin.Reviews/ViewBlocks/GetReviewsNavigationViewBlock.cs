@@ -14,13 +14,13 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
     public class GetReviewsNavigationViewBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         public GetReviewsNavigationViewBlock()
-            : base((string)null)
+            : base(null)
         {
         }
 
         public override Task<EntityView> Run(EntityView entityView, CommercePipelineExecutionContext context)
         {
-            Condition.Requires(entityView).IsNotNull(string.Format("{0}: The argument cannot be null.", (object)this.Name));
+            Condition.Requires(entityView).IsNotNull($"{this.Name}: The argument cannot be null.");
             EntityView entityView1 = new EntityView();
             string promotionsDashboard1 = context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard;
             entityView1.Name = promotionsDashboard1;
@@ -28,11 +28,12 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
             entityView1.ItemId = promotionsDashboard2;
             string str = "pencil";
             entityView1.Icon = str;
-            int num = 4;
+            int num = 8;
             entityView1.DisplayRank = num;
+            entityView1.DisplayName = "Reviews";
             EntityView entityView2 = entityView1;
-            entityView.ChildViews.Add((Model)entityView2);
-            return Task.FromResult<EntityView>(entityView);
+            entityView.ChildViews.Add(entityView2);
+            return Task.FromResult(entityView);
         }
     }
 }

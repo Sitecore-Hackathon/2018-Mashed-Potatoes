@@ -11,10 +11,11 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
     using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
 
-    using Sitecore.Commerce.Core;
     using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using MashedPotatoes.Commerce.Plugin.Reviews.Models;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
+
+    using Sitecore.Commerce.Core;
     using Sitecore.Framework.Conditions;
     using Sitecore.Framework.Pipelines;
 
@@ -50,17 +51,20 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
         /// The <see cref="Review"/>.
         /// </returns>
         public override async Task<Review> Run(AddReviewArgument arg, CommercePipelineExecutionContext context)
-        //{
-        //    Condition.Requires(arg).IsNotNull($"{this.Name}: The argument can not be null");
-        //    var result = await Task.Run(() => new Review() { Id =  });
-        //    return result;
-        //}
+
+            // {
+            // Condition.Requires(arg).IsNotNull($"{this.Name}: The argument can not be null");
+            // var result = await Task.Run(() => new Review() { Id =  });
         {
+            // return result;
+            // }
             AddReviewBlock addReviewBlock = this;
 
-            Condition.Requires(arg).IsNotNull<AddReviewArgument>(string.Format("{0}: The block argument cannot be null.", addReviewBlock.Name));
+            Condition.Requires(arg).IsNotNull($"{addReviewBlock.Name}: The block argument cannot be null.");
 
-            string reviewId = Guid.NewGuid().ToString();//string.Format("{0}{1}", (object)CommerceEntity.IdPrefix<Review>(), (object)arg.Code);
+            string
+                reviewId = Guid.NewGuid()
+                    .ToString(); // string.Format("{0}{1}", (object)CommerceEntity.IdPrefix<Review>(), (object)arg.Code);
 
             Review review = new Review();
             review.Id = reviewId;
@@ -70,23 +74,27 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
             review.DateCreated = nullable1;
             DateTimeOffset? nullable2 = new DateTimeOffset?(DateTimeOffset.UtcNow);
             review.DateUpdated = nullable2;
-            //coupon1.Promotion = new EntityReference()
-            //{
-            //    EntityTarget = promotion.Id,
-            //    Name = promotion.Name
-            //};
 
+            // coupon1.Promotion = new EntityReference()
+            // {
+            // EntityTarget = promotion.Id,
+            // Name = promotion.Name
+            // };
             CommerceContext commerceContext1 = context.CommerceContext;
             ReviewAddedModel reviewAdded = new ReviewAddedModel(review.FriendlyId);
 
             string name = review.Name;
             reviewAdded.Name = name;
 
-            commerceContext1.AddModel((Model)reviewAdded);
+            commerceContext1.AddModel(reviewAdded);
 
-            context.CommerceContext.AddUniqueObjectByType((object)arg);
+            context.CommerceContext.AddUniqueObjectByType(arg);
 
-            string str = await context.CommerceContext.AddMessage(context.GetPolicy<KnownResultCodes>().Information, (string)null, (object[])null, string.Format("Generated unallocated review"));
+            string str = await context.CommerceContext.AddMessage(
+                             context.GetPolicy<KnownResultCodes>().Information,
+                             null,
+                             null,
+                             string.Format("Generated unallocated review"));
 
             return review;
         }
