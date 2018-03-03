@@ -77,6 +77,10 @@
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.OData.Client, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Microsoft.OData.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
@@ -97,6 +101,18 @@
     </Reference>
     <Reference Include="Sitecore.Analytics, Version=11.18.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.Analytics.NoReferences.9.0.171219\lib\NET462\Sitecore.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce.Connect.Core, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Commerce.Connect.Core.11.0.192\lib\net462\Sitecore.Commerce.Connect.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce.Connect.Remote, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Commerce.Connect.Core.11.0.192\lib\net462\Sitecore.Commerce.Connect.Remote.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce.Engine.Connect, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Commerce.Engine.Connect.2.0.835\lib\net462\Sitecore.Commerce.Engine.Connect.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Commerce.ServiceProxy, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Sitecore.Commerce.Engine.Connect.2.0.835\lib\net462\Sitecore.Commerce.ServiceProxy.dll</HintPath>
     </Reference>
     <Reference Include="Sitecore.ContentSearch, Version=3.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\Sitecore.ContentSearch.NoReferences.9.0.171219\lib\NET462\Sitecore.ContentSearch.dll</HintPath>
@@ -181,18 +197,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="ContainerExtensions.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Pipelines\Arguments\AddReviewRequest.cs" />
+    <Compile Include="Pipelines\Arguments\AddReviewResult.cs" />
+    <Compile Include="Pipelines\Reviews\AddProductReview.cs" />
+    <Compile Include="Pipelines\Reviews\GetProductReviews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ReviewsServiceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Config\Include\Feature\MashedPotatoes.Feature.Reviews.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Config\Include\Feature\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Reviews\Reviews.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
