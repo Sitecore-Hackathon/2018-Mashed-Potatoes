@@ -1,4 +1,6 @@
-﻿using Microsoft.OData.Client;
+﻿using MashedPotatoes.Feature.Reviews.Entities;
+
+using Microsoft.OData.Client;
 
 using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.Engine;
@@ -21,6 +23,12 @@ namespace MashedPotatoes.Feature.Reviews
                 new BodyOperationParameter(nameof(reviewText), reviewText),
                 new BodyOperationParameter(nameof(author), author),
                 new BodyOperationParameter(nameof(score), score));
+        }
+
+        public static DataServiceQuery<Review> GetReviews(
+            this Container container)
+        {
+            return container.CreateQuery<Review>("Reviews");
         }
     }
 }

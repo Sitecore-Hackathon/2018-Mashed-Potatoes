@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 
 using MashedPotatoes.Feature.Reviews.Models;
@@ -23,6 +24,26 @@ namespace MashedPotatoes.Feature.Reviews.Controllers
 
         public ActionResult Reviews()
         {
+            var reviewsServiceProvider = new ReviewsServiceProvider();
+
+            var getReviewsRequest = new GetReviewsRequest();
+
+            GetReviewsResult getReviewsResult = reviewsServiceProvider.GetReviews(getReviewsRequest);
+            if (!getReviewsResult.Success)
+            {
+                // todo: log here
+            }
+
+            // todo: investigate this
+            //var model = getReviewsResult.Reviews
+            //    .Select(review => new Review
+            //                          {
+            //                              Author = review.Author, 
+            //                              Score = review.Score, 
+            //                              Text = review.Text
+            //                          })
+            //    .ToList();
+
             return this.View();
         }
 
