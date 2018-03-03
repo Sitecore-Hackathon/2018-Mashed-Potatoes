@@ -2,9 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-
-    using MashedPotatoes.Commerce.Plugin.Reviews.Components;
-
     using Microsoft.AspNetCore.OData.Builder;
 
     using Sitecore.Commerce.Core;
@@ -21,7 +18,6 @@
         /// </summary>
         public SampleEntity()
         {
-            this.Components = new List<Component>();
             this.DateCreated = DateTime.UtcNow;
             this.DateUpdated = this.DateCreated;
         }
@@ -38,11 +34,5 @@
         {
             this.Id = id;
         }
-
-        /// <summary>
-        /// Gets or sets the list of child components in the SampleEntity
-        /// </summary>
-        [Contained]
-        public IEnumerable<SampleComponent> ChildComponents { get; set; }
     }
 }

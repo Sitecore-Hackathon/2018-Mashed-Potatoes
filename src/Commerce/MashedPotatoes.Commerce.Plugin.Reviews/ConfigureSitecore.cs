@@ -1,13 +1,16 @@
-﻿namespace MashedPotatoes.Commerce.Plugin.Reviews
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ConfigureSitecore.cs" company="Sitecore Corporation">
+//   Copyright (c) Sitecore Corporation 1999-2017
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace Sitecore.Commerce.Plugin.Reviews
 {
     using System.Reflection;
-
-    using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines;
-    using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks;
-
     using Microsoft.Extensions.DependencyInjection;
-
     using Sitecore.Commerce.Core;
+    using Sitecore.Commerce.Plugin.Reviews.Pipelines;
+    using Sitecore.Commerce.Plugin.Reviews.Pipelines.Blocks;
     using Sitecore.Framework.Configuration;
     using Sitecore.Framework.Pipelines.Definitions.Extensions;
 
@@ -24,15 +27,15 @@
         /// </param>
         public void ConfigureServices(IServiceCollection services)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            var assembly = Assembly.GetExecutingAssembly();
             services.RegisterAllPipelineBlocks(assembly);
 
             services.Sitecore().Pipelines(config => config
 
-             .AddPipeline<ISamplePipeline, SamplePipeline>(
+             .AddPipeline<IAddReviewPipeline, AddReviewPipeline>(
                     configure =>
                         {
-                            configure.Add<SampleBlock>();
+                            configure.Add<AddReviewBlock>();
                         })
 
                .ConfigurePipeline<IConfigureServiceApiPipeline>(configure => configure.Add<ConfigureServiceApiBlock>()));
