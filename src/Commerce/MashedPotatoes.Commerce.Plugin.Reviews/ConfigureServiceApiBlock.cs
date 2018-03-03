@@ -1,13 +1,18 @@
-﻿namespace MashedPotatoes.Commerce.Plugin.Reviews
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="ConfigureServiceApiBlock.cs" company="Sitecore Corporation">
+//   Copyright (c) Sitecore Corporation 1999-2017
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace MashedPotatoes.Commerce.Plugin.Reviews
 {
     using System.Threading.Tasks;
-
-    using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
 
     using Microsoft.AspNetCore.OData.Builder;
 
     using Sitecore.Commerce.Core;
     using Sitecore.Commerce.Core.Commands;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using Sitecore.Framework.Conditions;
     using Sitecore.Framework.Pipelines;
 
@@ -21,7 +26,7 @@
     ///         Sitecore.Commerce.Core.CommercePipelineExecutionContext}
     ///     </cref>
     /// </seealso>
-    [PipelineDisplayName("SamplePluginConfigureServiceApiBlock")]
+    [PipelineDisplayName("Reviews.block.ConfigureServiceApiBlock")]
     public class ConfigureServiceApiBlock : PipelineBlock<ODataConventionModelBuilder, ODataConventionModelBuilder, CommercePipelineExecutionContext>
     {
         /// <summary>
@@ -41,18 +46,21 @@
             Condition.Requires(modelBuilder).IsNotNull($"{this.Name}: The argument cannot be null.");
 
             // Add the entities
-            modelBuilder.AddEntityType(typeof(SampleEntity));
+            modelBuilder.AddEntityType(typeof(Review));
 
             // Add the entity sets
-            modelBuilder.EntitySet<SampleEntity>("Sample");
+            modelBuilder.EntitySet<Review>("Reviews");
 
             // Add complex types
 
             // Add unbound functions
 
             // Add unbound actions
-            ActionConfiguration configuration = modelBuilder.Action("SampleCommand");
-            configuration.Parameter<string>("Id");
+            var configuration = modelBuilder.Action("AddReview");
+
+            configuration.Parameter<string>(Constants.ProductId);
+            configuration.Parameter<string>(Constants.ReviewText);
+
             configuration.ReturnsFromEntitySet<CommerceCommand>("Commands");
 
             return Task.FromResult(modelBuilder);

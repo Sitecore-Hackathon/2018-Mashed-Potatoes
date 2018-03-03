@@ -1,4 +1,8 @@
-﻿using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="CommandsController.cs" company="Sitecore Corporation">
+//   Copyright (c) Sitecore Corporation 1999-2017
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
 {
@@ -6,11 +10,10 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
     using System.Threading.Tasks;
     using System.Web.Http.OData;
 
-    using MashedPotatoes.Commerce.Plugin.Reviews.Commands;
-
     using Microsoft.AspNetCore.Mvc;
 
     using Sitecore.Commerce.Core;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Commands;
 
     /// <inheritdoc />
     /// <summary>
@@ -21,7 +24,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
     {
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.Controllers.CommandsController" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.CommandsController" /> class.
         /// </summary>
         /// <param name="serviceProvider">The service provider.</param>
         /// <param name="globalEnvironment">The global environment.</param>
@@ -36,12 +39,14 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
         /// <param name="value">The value.</param>
         /// <returns>A <see cref="IActionResult"/></returns>
         [HttpPut]
-        [Route("SampleCommand()")]
-        public async Task<IActionResult> SampleCommand([FromBody] ODataActionParameters value)
+        [Route("AddReview()")]
+        public async Task<IActionResult> AddReview([FromBody] ODataActionParameters value)
         {
-            string id = value["Id"].ToString();
-            var command = this.Command<SampleCommand>();
-            SampleEntity result = await command.Process(this.CurrentContext, id);
+            var productId = value[Constants.ProductId].ToString();
+            var reviewText = value[Constants.ReviewText].ToString();
+
+            var command = this.Command<AddReviewCommand>();
+            var result = await command.Process(this.CurrentContext, productId, reviewText);
 
             return new ObjectResult(command);
         }

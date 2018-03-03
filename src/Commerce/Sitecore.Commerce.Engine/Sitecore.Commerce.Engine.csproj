@@ -44,6 +44,8 @@
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
 
     <PackageReference Include="Sitecore.Commerce.Plugin.CacheWatcher" Version="2.0.*" />
+
+    <PackageReference Include="Sitecore.Commerce.Plugin.Content" Version="2.0.443" />
     <PackageReference Include="Sitecore.Commerce.Provider.FileSystem" Version="2.0.*" />
 
     <PackageReference Include="Sitecore.Commerce.Plugin.Search.Azure" Version="2.0.*" />
@@ -54,11 +56,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\data\Environments\" />
+    <ProjectReference Include="..\MashedPotatoes.Commerce.Plugin.Reviews\MashedPotatoes.Commerce.Plugin.Reviews.csproj" />
+    <ProjectReference Include="..\Plugin.Sample.AdventureWorks\Plugin.Sample.AdventureWorks.csproj" />
+    <ProjectReference Include="..\Plugin.Sample.Habitat\Plugin.Sample.Habitat.csproj" />
+    <ProjectReference Include="..\Plugin.Sample.Upgrade\Plugin.Sample.Upgrade.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MashedPotatoes.Commerce.Plugin.Reviews\MashedPotatoes.Commerce.Plugin.Reviews.csproj" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

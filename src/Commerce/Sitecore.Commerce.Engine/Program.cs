@@ -77,7 +77,10 @@ namespace Sitecore.Commerce.Engine
 
                         if (File.Exists(Path.Combine(hostingEnvironment.ContentRootPath, pfxPath)))
                         {
-                            options.Listen(IPAddress.Loopback, port, listenOptions => { listenOptions.UseHttps(pfxPath, pfxPassword); });
+                            options.Listen(IPAddress.Loopback, port, listenOptions =>
+                            {
+                                listenOptions.UseHttps(pfxPath, pfxPassword);
+                            });
                         }
                     }
                 })

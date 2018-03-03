@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Feature", "Feature", "{17DD5718-6E13-4F2C-9738-B410396D4552}"
 EndProject
@@ -38,6 +38,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reviews", "Reviews", "{690E81F6-8BBB-4DBA-AF2C-DA373B6059A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MashedPotatoes.Feature.Reviews", "src\Feature\Reviews\code\MashedPotatoes.Feature.Reviews.csproj", "{0AF69DA2-15AA-418D-8213-CBCAEBE47C59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.Sample.Habitat", "src\Commerce\Plugin.Sample.Habitat\Plugin.Sample.Habitat.csproj", "{AD049217-D29F-44C0-BAF7-352DF6D14C86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.Sample.Upgrade", "src\Commerce\Plugin.Sample.Upgrade\Plugin.Sample.Upgrade.csproj", "{E7F1B0BB-60BA-49A8-BAF2-8EF0E92C8A4F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.Sample.AdventureWorks", "src\Commerce\Plugin.Sample.AdventureWorks\Plugin.Sample.AdventureWorks.csproj", "{309BF25C-DE51-4A0B-B247-6473E6476461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +62,18 @@ Global
 		{0AF69DA2-15AA-418D-8213-CBCAEBE47C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AF69DA2-15AA-418D-8213-CBCAEBE47C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AF69DA2-15AA-418D-8213-CBCAEBE47C59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD049217-D29F-44C0-BAF7-352DF6D14C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD049217-D29F-44C0-BAF7-352DF6D14C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD049217-D29F-44C0-BAF7-352DF6D14C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD049217-D29F-44C0-BAF7-352DF6D14C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7F1B0BB-60BA-49A8-BAF2-8EF0E92C8A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7F1B0BB-60BA-49A8-BAF2-8EF0E92C8A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7F1B0BB-60BA-49A8-BAF2-8EF0E92C8A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7F1B0BB-60BA-49A8-BAF2-8EF0E92C8A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{309BF25C-DE51-4A0B-B247-6473E6476461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{309BF25C-DE51-4A0B-B247-6473E6476461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{309BF25C-DE51-4A0B-B247-6473E6476461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{309BF25C-DE51-4A0B-B247-6473E6476461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +84,9 @@ Global
 		{1FBFD92A-137F-45AA-BA2C-7CD18914B083} = {E7640A72-E6D2-4697-87D1-E634C4B8B395}
 		{690E81F6-8BBB-4DBA-AF2C-DA373B6059A3} = {17DD5718-6E13-4F2C-9738-B410396D4552}
 		{0AF69DA2-15AA-418D-8213-CBCAEBE47C59} = {690E81F6-8BBB-4DBA-AF2C-DA373B6059A3}
+		{AD049217-D29F-44C0-BAF7-352DF6D14C86} = {E7640A72-E6D2-4697-87D1-E634C4B8B395}
+		{E7F1B0BB-60BA-49A8-BAF2-8EF0E92C8A4F} = {E7640A72-E6D2-4697-87D1-E634C4B8B395}
+		{309BF25C-DE51-4A0B-B247-6473E6476461} = {E7640A72-E6D2-4697-87D1-E634C4B8B395}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {311DA37D-528B-43B2-A99B-E7253F841D46}
