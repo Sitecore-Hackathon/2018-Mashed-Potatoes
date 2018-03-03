@@ -7,14 +7,11 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Policies
         public KnownReviewsActionsPolicy()
         {
             this.AddReview = nameof(this.AddReview);
-            this.EditReview = nameof(this.EditReview);
-            this.PaginateReviews = nameof(this.PaginateReviews);
+            this.DeleteReview = nameof(this.DeleteReview);
         }
 
         public string AddReview { get; set; }
 
-        public string EditReview { get; set; }
-
-        public string PaginateReviews { get; set; }
+        public string DeleteReview { get; set; }
     }
 }

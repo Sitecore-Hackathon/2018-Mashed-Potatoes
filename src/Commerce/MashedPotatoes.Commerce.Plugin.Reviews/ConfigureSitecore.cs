@@ -43,8 +43,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews
                     .ConfigurePipeline<IBizFxNavigationPipeline>(configure => configure.Add<GetReviewsNavigationViewBlock>().After<GetNavigationViewBlock>())
                     .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure.Add<GetRewiewsDashboardViewBlock>()
                         .Add<GetProductReviewsViewBlock>().After<GetSellableItemDetailsViewBlock>()
-                        .Add<GetReviewsListViewBlock>().After<GetRewiewsDashboardViewBlock>()
-                        .Add<GetReviewDetailsViewBlock>().After<GetReviewsListViewBlock>()));
+                        .Add<GetReviewsListViewBlock>().After<GetRewiewsDashboardViewBlock>()));
             services.RegisterAllCommands(assembly);
         }
     }
