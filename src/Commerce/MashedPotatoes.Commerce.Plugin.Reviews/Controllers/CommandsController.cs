@@ -24,7 +24,7 @@
         }
 
         /// <summary>
-        /// Samples the command.
+        /// Add Review.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <returns>A <see cref="IActionResult"/></returns>

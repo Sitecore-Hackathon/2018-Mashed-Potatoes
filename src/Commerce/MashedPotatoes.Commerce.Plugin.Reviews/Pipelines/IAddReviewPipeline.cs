@@ -7,14 +7,8 @@
     using Sitecore.Framework.Pipelines;
 
     /// <summary>
-    /// Defines the ISamplePipeline interface
+    /// Defines the IAddReviewPipeline interface
     /// </summary>
-    /// <seealso>
-    ///     <cref>
-    ///         Sitecore.Framework.Pipelines.IPipeline{MashedPotatoes.Commerce.Plugin.Reviews.SampleArgument,
-    ///         MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity, Sitecore.Commerce.Core.CommercePipelineExecutionContext}
-    ///     </cref>
-    /// </seealso>
     [PipelineDisplayName("AddReviewPipeline")]
     public interface IAddReviewPipeline : IPipeline<AddReviewArgument, Review, CommercePipelineExecutionContext>
     {

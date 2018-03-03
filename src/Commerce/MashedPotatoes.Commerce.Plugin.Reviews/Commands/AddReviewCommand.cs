@@ -20,11 +20,11 @@
         /// The _pipeline.
         /// </summary>
         private readonly IAddReviewPipeline pipeline;
-       
+
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleCommand" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.AddReviewCommand" /> class.
         /// </summary>
         /// <param name="pipeline">
         /// The pipeline.

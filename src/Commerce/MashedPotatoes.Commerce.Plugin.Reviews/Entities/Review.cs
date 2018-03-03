@@ -6,13 +6,13 @@
 
     /// <inheritdoc />
     /// <summary>
-    /// SampleEntity model.
+    /// Review model.
     /// </summary>
     public class Review : CommerceEntity
     {
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.Review" /> class.
         /// </summary>
         public Review()
         {
@@ -23,7 +23,7 @@
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity" /> class. 
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.Review" /> class. 
         /// Public Constructor
         /// </summary>
         /// <param name="id">

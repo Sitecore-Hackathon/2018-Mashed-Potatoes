@@ -10,5 +10,10 @@ namespace MashedPotatoes.Feature.Reviews.Services
         {
             return this.RunPipeline<AddReviewRequest, AddReviewResult>(Constants.PipelineNames.AddProductReview, request);
         }
+
+        public virtual GetReviewsResult GetReviews(GetReviewsRequest request)
+        {
+            return this.RunPipeline<GetReviewsRequest, GetReviewsResult>(Constants.PipelineNames.GetProductReviews, request);
+        }
     }
 }

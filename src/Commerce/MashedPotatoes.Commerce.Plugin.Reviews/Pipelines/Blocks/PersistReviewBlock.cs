@@ -9,14 +9,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
     using Sitecore.Framework.Pipelines;
 
     /// <summary>
-    /// Defines a block
+    /// Defines a PersistReviewBlock
     /// </summary> 
-    /// <seealso>
-    ///     <cref>
-    ///         Sitecore.Framework.Pipelines.PipelineBlock{Sitecore.Commerce.Plugin.Sample.SampleArgument,
-    ///         Sitecore.Commerce.Plugin.Sample.SampleEntity, Sitecore.Commerce.Core.CommercePipelineExecutionContext}
-    ///     </cref>
-    /// </seealso>
     [PipelineDisplayName("Reviews.PersistReviewBlock")]
     public class PersistReviewBlock : PipelineBlock<Review, Review, CommercePipelineExecutionContext>
     {
