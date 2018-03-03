@@ -27,7 +27,7 @@ namespace MashedPotatoes.Feature.Reviews.Pipelines.Reviews
             {
                 CommerceCommand command = Proxy.DoCommand(
                     this.GetContainer(request.ShopName, string.Empty)
-                        .AddReview(request.ProductId, request.Text));
+                        .AddReview(request.ProductId, request.Text, request.Author, request.Score));
 
                 result.HandleCommandMessages(command);
             }

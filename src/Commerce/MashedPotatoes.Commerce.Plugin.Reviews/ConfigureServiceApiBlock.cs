@@ -61,6 +61,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews
 
             configuration.Parameter<string>(Constants.ProductId);
             configuration.Parameter<string>(Constants.ReviewText);
+            configuration.Parameter<string>(Constants.Author);
+            configuration.Parameter<int>(Constants.Score);
 
             configuration.ReturnsFromEntitySet<CommerceCommand>("Commands");
 
