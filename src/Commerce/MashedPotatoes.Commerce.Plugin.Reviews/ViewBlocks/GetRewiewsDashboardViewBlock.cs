@@ -15,16 +15,18 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
     public class GetRewiewsDashboardViewBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         public GetRewiewsDashboardViewBlock()
-            : base((string)null)
+            : base(null)
         {
         }
 
         public override async Task<EntityView> Run(EntityView entityView, CommercePipelineExecutionContext context)
         {
             GetRewiewsDashboardViewBlock dashboardViewBlock = this;
-            // ISSUE: explicit non-virtual call
-            Condition.Requires(entityView).IsNotNull(string.Format("{0}: The argument cannot be null.", (object)/*__nonvirtual*/(dashboardViewBlock.Name)));
-            EntityViewArgument entityViewArgument = context.CommerceContext.GetObjects<EntityViewArgument>().FirstOrDefault();
+
+            Condition.Requires(entityView)
+                .IsNotNull($"{dashboardViewBlock.Name}: The argument cannot be null.");
+            EntityViewArgument entityViewArgument =
+                context.CommerceContext.GetObjects<EntityViewArgument>().FirstOrDefault();
             if (string.IsNullOrEmpty(entityViewArgument?.ViewName) || !entityViewArgument.ViewName.Equals(
                     context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard,
                     StringComparison.OrdinalIgnoreCase))

@@ -1,8 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SampleArgument.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using Sitecore.Commerce.Plugin.Catalog;
 
 namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments
 {
@@ -25,13 +21,17 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments
         /// <param name="reviewText">
         /// The review text.
         /// </param>
-        public AddReviewArgument(string productId, string reviewText)
+        /// <param name="author"></param>
+        /// <param name="score"></param>
+        public AddReviewArgument(string productId, string reviewText, string author, int score)
         {
             Condition.Requires(productId).IsNotNull("The parameter can not be null");
             Condition.Requires(reviewText).IsNotNull("The parameter can not be null");
 
             this.ProductId = productId;
             this.ReviewsText = reviewText;
+            this.Author = author;
+            this.Score = score;
         }
 
         /// <summary>
@@ -43,8 +43,20 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments
         public string ProductId { get; set; }
 
         /// <summary>
+        /// Gets or sets the parameter.
+        /// </summary>
+        /// <value>
+        /// The parameter.
+        /// </value>
+        public SellableItem Product { get; set; }
+
+        /// <summary>
         /// Gets or sets the reviews text.
         /// </summary>
         public string ReviewsText { get; set; }
+
+        public string Author { get; set; }
+
+        public int Score { get; set; }
     }
 }
