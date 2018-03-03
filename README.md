@@ -11,13 +11,19 @@ Module extends Sitecore Commerce Engine capabilities.
 
 Sitecore Commerce
 
+##Prerequisites
+
+Solution includes default Commerce Engine SDK projects: Plugin.Sample.AdventureWorks, Plugin.Sample.Habitat, Plugin.Sample.Upgrade.
+As default installation has strong dependencies on this projects through configuration files we have considered to include them into repository.
+The compiled solution is ready to deploy to Commerce Authoring service.
+
 ## Installation Guide
 
  - clone repository to your machine
  - open MashedPotatoes solution file with Visual Studion 2017
  - restore nuget packages for the solution
  - deploy Sitecore.Commerce.Engine project to your local Sitecore Commerce Authoring service
-
+ 
 ## Entry Submission Requirements
 
 All teams are required to submit the following as part of their entry submission on or before the end of the Hackathon on **Saturday March 3rd 2018 at 8PM EST**. The modules should be based on [Sitecore 9.0 rev. 171219 (Update-1)](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Update1.aspx).
