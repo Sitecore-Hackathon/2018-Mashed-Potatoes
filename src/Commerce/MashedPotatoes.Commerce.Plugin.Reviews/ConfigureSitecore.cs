@@ -1,10 +1,7 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ConfigureSitecore.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
+﻿using MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks;
 
-using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks;
+using Sitecore.Commerce.EntityViews;
+using Sitecore.Commerce.Plugin.BusinessUsers;
 
 namespace MashedPotatoes.Commerce.Plugin.Reviews
 {
@@ -32,16 +29,17 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews
             var assembly = Assembly.GetExecutingAssembly();
             services.RegisterAllPipelineBlocks(assembly);
 
-            services.Sitecore().Pipelines(config => config
-
-             .AddPipeline<IAddReviewPipeline, AddReviewPipeline>(
-                    configure =>
-                        {
-                            configure.Add<AddReviewBlock>().Add<PersistReviewBlock>();
-                        })
-
-               .ConfigurePipeline<IConfigureServiceApiPipeline>(configure => configure.Add<ConfigureServiceApiBlock>()));
-
+            services.Sitecore().Pipelines(
+                config => config
+                    .AddPipeline<IAddReviewPipeline, AddReviewPipeline>(configure =>
+                            {
+                                configure.Add<AddReviewBlock>().Add<PersistReviewBlock>();
+                            })
+                    .ConfigurePipeline<IConfigureServiceApiPipeline>(configure => configure.Add<ConfigureServiceApiBlock>())
+                    .ConfigurePipeline<IBizFxNavigationPipeline>(configure => configure.Add<GetReviewsNavigationViewBlock>().After<GetNavigationViewBlock>())
+                    .ConfigurePipeline<IGetEntityViewPipeline>(configure => configure.Add<GetRewiewsDashboardViewBlock>()
+                        .Add<GetReviewsListViewBlock>().After<GetRewiewsDashboardViewBlock>()
+                        .Add<GetReviewDetailsViewBlock>().After<GetReviewsListViewBlock>()));
             services.RegisterAllCommands(assembly);
         }
     }
