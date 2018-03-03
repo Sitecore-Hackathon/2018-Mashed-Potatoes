@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SampleCommand.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
+﻿namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
 {
     using System;
     using System.Threading.Tasks;
@@ -12,7 +6,6 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
     using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
-    using Sitecore.Commerce.Plugin.Catalog;
 
     using Sitecore.Commerce.Core;
     using Sitecore.Commerce.Core.Commands;
@@ -52,19 +45,21 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
         /// <param name="reviewText">
         /// The review text.
         /// </param>
+        /// <param name="author"></param>
+        /// <param name="score"></param>
         /// <returns>
         /// The <see cref="Task"/>.
         /// </returns>
-        public async Task<Review> Process(CommerceContext commerceContext, string productId, string reviewText)
+        public async Task<Review> Process(CommerceContext commerceContext, string productId, string reviewText, string author, int score)
         {
             using (var activity = CommandActivity.Start(commerceContext, this))
             {
-                var arg = new AddReviewArgument(productId, reviewText);
+                var arg = new AddReviewArgument(productId, reviewText, author, score);
 
                 var result = await this._pipeline.Run(arg, new CommercePipelineExecutionContextOptions(commerceContext));
 
                 return result;
-            } 
+            }
         }
     }
 }

@@ -26,12 +26,7 @@
     <Content Include="Components\SampleComponent.cs" />
     <Content Include="Controllers\CommandsController.cs" />
     <Content Include="Controllers\ReviewsController.cs" />
-    <Content Include="Entities\SampleEntity.cs" />
-    <Content Include="Models\SampleModel.cs" />
-    <Content Include="Pipelines\Arguments\SampleArgument.cs" />
     <Content Include="Pipelines\Blocks\PersistReviewBlock.cs" />
-    <Content Include="Pipelines\ISamplePipeline.cs" />
-    <Content Include="Pipelines\SamplePipeline.cs" />
     <Content Include="Policies\KnownReviewsViewsPolicy.cs" />
   </ItemGroup>
 

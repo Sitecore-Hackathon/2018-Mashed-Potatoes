@@ -1,14 +1,7 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SampleBlock.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
+﻿namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
 
     using Sitecore.Commerce.Core;
@@ -19,15 +12,6 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
     using Sitecore.Framework.Pipelines;
     using Sitecore.Commerce.Plugin.ManagedLists;
 
-    /// <summary>
-    /// Defines a block
-    /// </summary>
-    /// <seealso>
-    ///     <cref>
-    ///         Sitecore.Framework.Pipelines.PipelineBlock{MashedPotatoes.Commerce.Plugin.Reviews.SampleArgument,
-    ///         MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity, Sitecore.Commerce.Core.CommercePipelineExecutionContext}
-    ///     </cref>
-    /// </seealso>
     [PipelineDisplayName("Reviews.AddReviewBlock")]
     public class AddReviewBlock : PipelineBlock<AddReviewArgument, Review, CommercePipelineExecutionContext>
     {
@@ -35,7 +19,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
 
         public AddReviewBlock(IFindEntityPipeline findEntityPipeline) : base()
         {
-            this.findEntityPipeline = findEntityPipeline; 
+            this.findEntityPipeline = findEntityPipeline;
         }
 
         /// <summary>
@@ -51,37 +35,27 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
         /// The <see cref="Review"/>.
         /// </returns>
         public override async Task<Review> Run(AddReviewArgument arg, CommercePipelineExecutionContext context)
-        //{
-        //    Condition.Requires(arg).IsNotNull($"{this.Name}: The argument can not be null");
-        //    var result = await Task.Run(() => new Review() { Id =  });
-        //    return result;
-        //}
         {
             AddReviewBlock addReviewBlock = this;
 
             Condition.Requires(arg).IsNotNull<AddReviewArgument>(string.Format("{0}: The block argument cannot be null.", addReviewBlock.Name));
 
-            string reviewId = Guid.NewGuid().ToString();//string.Format("{0}{1}", (object)CommerceEntity.IdPrefix<Review>(), (object)arg.Code);
+            string reviewId = Guid.NewGuid().ToString();
 
             Review review = new Review();
             review.Id = $"{(object)CommerceEntity.IdPrefix<Review>()}{(object)reviewId}";
             review.Text = arg.ReviewsText;
+            review.Author = arg.Author;
+            review.Score = arg.Score;
 
-            DateTimeOffset? nullable1 = new DateTimeOffset?(DateTimeOffset.UtcNow);
-            review.DateCreated = nullable1;
-            DateTimeOffset? nullable2 = new DateTimeOffset?(DateTimeOffset.UtcNow);
-            review.DateUpdated = nullable2;
-            //coupon1.Promotion = new EntityReference()
-            //{
-            //    EntityTarget = promotion.Id,
-            //    Name = promotion.Name
-            //};
+            DateTimeOffset? dateCreated = new DateTimeOffset?(DateTimeOffset.UtcNow);
+            review.DateCreated = dateCreated;
+            DateTimeOffset? dateUpdated = new DateTimeOffset?(DateTimeOffset.UtcNow);
+            review.DateUpdated = dateUpdated;
 
-            CommerceContext commerceContext1 = context.CommerceContext;
-            ReviewAddedModel reviewAdded = new ReviewAddedModel(review.FriendlyId);
+            CommerceContext commerceContextRef = context.CommerceContext;
 
             string name = review.Name;
-            reviewAdded.Name = name;
 
             review.ProductReference = new EntityReference()
             {
@@ -89,9 +63,9 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
                 Name = arg.Product.Name
             };
 
-            Review review2 = review;
+            Review reviewRef = review;
 
-            review2.SetComponent(new ListMembershipsComponent()
+            reviewRef.SetComponent(new ListMembershipsComponent()
             {
                 Memberships = new List<string>()
                   {
@@ -99,7 +73,9 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
                   }
             });
 
-            commerceContext1.AddModel((Model)reviewAdded);
+            ReviewAddedModel reviewAdded = new ReviewAddedModel(review.FriendlyId);
+            reviewAdded.Name = name;
+            commerceContextRef.AddModel((Model)reviewAdded);
 
             context.CommerceContext.AddUniqueObjectByType((object)arg);
 
