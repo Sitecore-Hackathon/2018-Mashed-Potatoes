@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commerce", "Commerce", "{E7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MashedPotatoes.Commerce.Plugin.Reviews", "src\Commerce\MashedPotatoes.Commerce.Plugin.Reviews\MashedPotatoes.Commerce.Plugin.Reviews.csproj", "{AC734DD6-B12A-47F0-8843-CBDF0DDD61A5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sitecore.Commerce.Engine", "src\Commerce\Sitecore.Commerce.Engine\Sitecore.Commerce.Engine.csproj", "{1FBFD92A-137F-45AA-BA2C-7CD18914B083}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{AC734DD6-B12A-47F0-8843-CBDF0DDD61A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC734DD6-B12A-47F0-8843-CBDF0DDD61A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC734DD6-B12A-47F0-8843-CBDF0DDD61A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FBFD92A-137F-45AA-BA2C-7CD18914B083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FBFD92A-137F-45AA-BA2C-7CD18914B083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FBFD92A-137F-45AA-BA2C-7CD18914B083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FBFD92A-137F-45AA-BA2C-7CD18914B083}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D27C83D2-2EAF-4E44-A1ED-2B3C2EBB5854} = {DAFED8F5-6CBD-4384-AAD6-DC3BCCF24911}
 		{AC734DD6-B12A-47F0-8843-CBDF0DDD61A5} = {E7640A72-E6D2-4697-87D1-E634C4B8B395}
+		{1FBFD92A-137F-45AA-BA2C-7CD18914B083} = {E7640A72-E6D2-4697-87D1-E634C4B8B395}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {311DA37D-528B-43B2-A99B-E7253F841D46}

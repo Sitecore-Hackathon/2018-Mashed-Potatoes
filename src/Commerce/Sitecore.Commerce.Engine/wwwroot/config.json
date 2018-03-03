@@ -1,0 +1,52 @@
+{
+    "AppSettings": {
+        "SiteTitle": "Sitecore Commerce Engine",
+        "BootStrapFile": "Global",
+        "DeploymentId": "Deployment01",
+        "EnvironmentName": "HabitatAuthoring",
+        "EncryptionProtectionType": "Machine",
+        "EncryptionCertificateHash": "Enter a valid certificate thumbprint for a PXF file. X-509 not supported yet",
+        "EncryptionSID": "Enter a valid SID for a domain registered user",
+        "EncryptionKeyStorageLocation": "c:\\Encryption-Keys\\",
+        "SitecoreIdentityServerUrl": "https://localhost:5050",
+        "AllowedOrigins": [ "https://localhost:4200", "https://storefront.hackathon.local" ],
+        "AntiForgeryEnabled": true,
+        "UseHttpsInKestrel": true,
+        "SslPort": 5000,
+        "SslPfxPath": "wwwroot/localhost.pfx",
+        "SslPfxPassword": "sitecore"
+    },
+    "ApplicationInsights": {
+        "InstrumentationKey": "",
+        "MinimumLevel": "Information"
+    },
+    "Logging": {
+        "IncludeScopes": false,
+        "LogLevel": {
+            "Default": "Information",
+            "System": "Warning",
+            "Microsoft": "Warning"
+        },
+        "ApplicationInsightsLoggingEnabled": false
+    },
+    "Serilog": {
+        "Using": [ "Serilog.Sinks.Literate", "Serilog.Sinks.File" ],
+        "MinimumLevel": {
+            "Default": "Information",
+            "Override": {
+                "Microsoft": "Information",
+                "System": "Information"
+            }
+        },
+        "FileSizeLimitBytes": 100000000
+    },
+    "Certificates": {
+        "Certificates": [
+            {
+                "Thumbprint": "A00CF9086CD1E22228ACCF82CDED362D903D191D",
+                "DefaultRoles": [ "sitecore\\QA", "sitecore\\Commerce Business User" ]
+            }
+        ],
+        "CertificateHeaderName": "X-CommerceEngineCert"
+    }
+}
