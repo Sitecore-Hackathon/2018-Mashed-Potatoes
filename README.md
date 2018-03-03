@@ -1,15 +1,24 @@
 ![Hackathon Logo](documentation/images/hackathon.png?raw=true "Hackathon Logo")
 
-# Submission Boilerplate
+# Product Reviews Module
 
-Welcome to Sitecore Hackathon 2018.
+## Module Purpose
 
-The Hackathon site can be found at http://www.sitecorehackathon.org/sitecore-hackathon-2018/
+One of the must have features of any commerce website is customer's review on the product. Our module allows to provide feedback using simple form on the product page.
+Module extends Sitecore Commerce Engine capabilities.
 
-This purpose of repository is to provide a sample which shows how to structure the Hackathon submissions. We highly recommend
+## Module Sitecore Hackathon Category
 
+Sitecore Commerce
 
-## Entry Submission Requirements 
+## Installation Guide
+
+ - clone repository to your machine
+ - open MashedPotatoes solution file with Visual Studion 2017
+ - restore nuget packages for the solution
+ - deploy Sitecore.Commerce.Engine project to your local Sitecore Commerce Authoring service
+
+## Entry Submission Requirements
 
 All teams are required to submit the following as part of their entry submission on or before the end of the Hackathon on **Saturday March 3rd 2018 at 8PM EST**. The modules should be based on [Sitecore 9.0 rev. 171219 (Update-1)](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Update1.aspx).
 
