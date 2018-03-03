@@ -8,22 +8,14 @@
     using Sitecore.Commerce.Core;
     using Sitecore.Framework.Pipelines;
 
-    /// <inheritdoc />
     /// <summary>
-    ///  Defines the SamplePipeline pipeline.
+    ///  Defines the AddReviewPipeline pipeline.
     /// </summary>
-    /// <seealso>
-    ///     <cref>
-    ///         Sitecore.Commerce.Core.CommercePipeline{MashedPotatoes.Commerce.Plugin.Reviews.SampleArgument,
-    ///         MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity}
-    ///     </cref>
-    /// </seealso>
-    /// <seealso cref="T:MashedPotatoes.Commerce.Plugin.Reviews.ISamplePipeline" />
     public class AddReviewPipeline : CommercePipeline<AddReviewArgument, Review>, IAddReviewPipeline
     {
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SamplePipeline" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.AddReviewPipeline" /> class.
         /// </summary>
         /// <param name="configuration">The configuration.</param>
         /// <param name="loggerFactory">The logger factory.</param>

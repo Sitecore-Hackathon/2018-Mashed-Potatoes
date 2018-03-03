@@ -22,10 +22,10 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
         {
             Condition.Requires(entityView).IsNotNull($"{this.Name}: The argument cannot be null.");
             EntityView entityView1 = new EntityView();
-            string promotionsDashboard1 = context.GetPolicy<KnownReviewsViewsPolicy>().Reviews;
-            entityView1.Name = promotionsDashboard1;
-            string promotionsDashboard2 = context.GetPolicy<KnownReviewsViewsPolicy>().Reviews;
-            entityView1.ItemId = promotionsDashboard2;
+            string reviewsDashboard = context.GetPolicy<KnownReviewsViewsPolicy>().Reviews;
+            entityView1.Name = reviewsDashboard;
+            string reviewsDashboard2 = context.GetPolicy<KnownReviewsViewsPolicy>().Reviews;
+            entityView1.ItemId = reviewsDashboard2;
             string str = "pencil";
             entityView1.Icon = str;
             int num = 8;

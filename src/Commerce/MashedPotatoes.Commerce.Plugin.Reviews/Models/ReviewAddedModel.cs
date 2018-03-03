@@ -4,14 +4,14 @@
 
     /// <inheritdoc />
     /// <summary>
-    /// Defines a model
+    /// Defines a ReviewAddedModel model
     /// </summary>
     /// <seealso cref="T:Sitecore.Commerce.Core.Model" />
     public class ReviewAddedModel : Model
     {
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleModel" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.ReviewAddedModel" /> class.
         /// </summary>
         public ReviewAddedModel(string id)
         {
