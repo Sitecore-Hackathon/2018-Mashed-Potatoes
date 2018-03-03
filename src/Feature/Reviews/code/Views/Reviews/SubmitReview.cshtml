@@ -1,0 +1,19 @@
+﻿@using Sitecore.Mvc
+@model MashedPotatoes.Feature.Reviews.Models.Review
+
+@using (Html.BeginRouteForm(Sitecore.Mvc.Configuration.MvcSettings.SitecoreRouteName, FormMethod.Post))
+{
+    @Html.Sitecore().FormHandler("Reviews", "SubmitReview")
+    @Html.LabelFor(x => x.Text)
+    @Html.EditorFor(x => x.Text)
+
+    @Html.LabelFor(x => x.Author)
+    @Html.EditorFor(x => x.Author)
+
+    @Html.LabelFor(x => x.Score)
+    @Html.EditorFor(x => x.Score)
+
+    @Html.HiddenFor(x => x.ProductId)
+
+    <input type="submit" />
+}
