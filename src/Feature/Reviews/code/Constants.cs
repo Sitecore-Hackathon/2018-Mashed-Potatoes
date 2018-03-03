@@ -5,6 +5,7 @@
         public static class PipelineNames
         {
             public static readonly string AddProductReview = "commerce.reviews.addProductReview";
+            public static readonly string GetProductReviews = "commerce.reviews.getProductReviews";
         }
     }
 }

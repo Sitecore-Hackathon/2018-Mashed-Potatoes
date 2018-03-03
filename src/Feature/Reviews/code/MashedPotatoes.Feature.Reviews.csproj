@@ -204,9 +204,12 @@
     <Compile Include="Constants.cs" />
     <Compile Include="ContainerExtensions.cs" />
     <Compile Include="Controllers\ReviewsController.cs" />
+    <Compile Include="Entities\Review.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Pipelines\Arguments\AddReviewRequest.cs" />
     <Compile Include="Pipelines\Arguments\AddReviewResult.cs" />
+    <Compile Include="Pipelines\Arguments\GetReviewsResult.cs" />
+    <Compile Include="Pipelines\Arguments\GetReviewsRequest.cs" />
     <Compile Include="Pipelines\Reviews\AddProductReview.cs" />
     <Compile Include="Pipelines\Reviews\GetProductReviews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
