@@ -6,10 +6,12 @@
 
 namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines
 {
-    using Microsoft.Extensions.Logging;
-    using Sitecore.Commerce.Core;
     using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
+
+    using Microsoft.Extensions.Logging;
+
+    using Sitecore.Commerce.Core;
     using Sitecore.Framework.Pipelines;
 
     /// <inheritdoc />

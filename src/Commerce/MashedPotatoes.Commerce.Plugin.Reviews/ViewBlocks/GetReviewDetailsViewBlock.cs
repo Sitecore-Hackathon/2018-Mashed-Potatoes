@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using MashedPotatoes.Commerce.Plugin.Reviews.Policies;
 using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
+using MashedPotatoes.Commerce.Plugin.Reviews.Policies;
+
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Framework.Conditions;
@@ -15,38 +16,40 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
     public class GetReviewDetailsViewBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         public GetReviewDetailsViewBlock()
-            : base((string)null)
+            : base(null)
         {
         }
+
         public override Task<EntityView> Run(EntityView entityView, CommercePipelineExecutionContext context)
         {
-            Condition.Requires<EntityView>(entityView).IsNotNull<EntityView>(string.Format("{0}: The argument cannot be null", (object)this.Name));
+            Condition.Requires(entityView).IsNotNull($"{this.Name}: The argument cannot be null");
             EntityViewArgument entityViewArgument = context.CommerceContext.GetObject<EntityViewArgument>();
-            if (string.IsNullOrEmpty(entityViewArgument != null ? entityViewArgument.ViewName : (string)null) || !entityViewArgument.ViewName.Equals(context.GetPolicy<KnownReviewsViewsPolicy>().Details, StringComparison.OrdinalIgnoreCase) && !entityViewArgument.ViewName.Equals(context.GetPolicy<KnownReviewsViewsPolicy>().Master, StringComparison.OrdinalIgnoreCase))
-                return Task.FromResult<EntityView>(entityView);
+            if (string.IsNullOrEmpty(entityViewArgument != null ? entityViewArgument.ViewName : null) || !entityViewArgument.ViewName.Equals(context.GetPolicy<KnownReviewsViewsPolicy>().Details, StringComparison.OrdinalIgnoreCase) && !entityViewArgument.ViewName.Equals(context.GetPolicy<KnownReviewsViewsPolicy>().Master, StringComparison.OrdinalIgnoreCase))
+                return Task.FromResult(entityView);
             if (entityViewArgument.ForAction.Equals(context.GetPolicy<KnownReviewsActionsPolicy>().AddReview, StringComparison.OrdinalIgnoreCase) && entityViewArgument.ViewName.Equals(context.GetPolicy<KnownReviewsViewsPolicy>().Details, StringComparison.OrdinalIgnoreCase))
             {
                 this.PopulateDetails(entityView, null, true, false, context);
-                return Task.FromResult<EntityView>(entityView);
+                return Task.FromResult(entityView);
             }
+
             bool isEditAction = entityViewArgument.ForAction.Equals(context.GetPolicy<KnownReviewsActionsPolicy>().EditReview, StringComparison.OrdinalIgnoreCase);
             if (!(entityViewArgument.Entity is Review) || !isEditAction && !string.IsNullOrEmpty(entityViewArgument.ForAction))
-                return Task.FromResult<EntityView>(entityView);
+                return Task.FromResult(entityView);
             Review entity = (Review)entityViewArgument.Entity;
             EntityView view;
             if (entityViewArgument.ViewName.Equals(context.GetPolicy<KnownReviewsViewsPolicy>().Master, StringComparison.OrdinalIgnoreCase))
             {
                 EntityView entityView1 = new EntityView();
-                entityView1.EntityId = (entity != null ? entity.Id : (string)null) ?? string.Empty;
+                entityView1.EntityId = (entity != null ? entity.Id : null) ?? string.Empty;
                 string details = context.GetPolicy<KnownReviewsViewsPolicy>().Details;
                 entityView1.Name = details;
                 view = entityView1;
-                entityView.ChildViews.Add((Model)view);
+                entityView.ChildViews.Add(view);
             }
             else
                 view = entityView;
             this.PopulateDetails(view, entity, false, isEditAction, context);
-            return Task.FromResult<EntityView>(entityView);
+            return Task.FromResult(entityView);
         }
 
         private void PopulateDetails(EntityView view, Review review, bool isAddAction, bool isEditAction, CommercePipelineExecutionContext context)
@@ -59,8 +62,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 ViewProperty viewProperty = new ViewProperty();
                 string str1 = "Description";
                 viewProperty.Name = str1;
-                string str2 = (review != null ? review.Text : (string)null) ?? string.Empty;
-                viewProperty.RawValue = (object)str2;
+                string str2 = (review != null ? review.Text : null) ?? string.Empty;
+                viewProperty.RawValue = str2;
                 int num1 = 1;
                 viewProperty.IsReadOnly = num1 != 0;
                 int num2 = 0;
@@ -75,8 +78,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 ViewProperty viewProperty1 = new ViewProperty();
                 string str1 = "Name";
                 viewProperty1.Name = str1;
-                string str2 = (review != null ? review.Name : (string)null) ?? string.Empty;
-                viewProperty1.RawValue = (object)str2;
+                string str2 = (review != null ? review.Name : null) ?? string.Empty;
+                viewProperty1.RawValue = str2;
                 int num1 = isEditAction ? 1 : 0;
                 viewProperty1.IsHidden = num1 != 0;
                 int num2 = !isAddAction ? 1 : 0;
@@ -89,12 +92,13 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 else
                 {
                     policyList = new List<Policy>();
-                    policyList.Add((Policy)new MaxLengthPolicy()
-                    {
-                        MaxLengthAllow = 50
-                    });
+                    policyList.Add(new MaxLengthPolicy()
+                                       {
+                                           MaxLengthAllow = 50
+                                       });
                 }
-                viewProperty1.Policies = (IList<Policy>)policyList;
+
+                viewProperty1.Policies = policyList;
                 properties1.Add(viewProperty1);
                 List<ViewProperty> properties2 = view.Properties;
                 ViewProperty viewProperty2 = new ViewProperty();
@@ -102,8 +106,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 viewProperty2.Name = str3;
                 int num3 = 0;
                 viewProperty2.IsRequired = num3 != 0;
-                string str4 = (review != null ? review.DisplayName : (string)null) ?? string.Empty;
-                viewProperty2.RawValue = (object)str4;
+                string str4 = (review != null ? review.DisplayName : null) ?? string.Empty;
+                viewProperty2.RawValue = str4;
                 int num4 = 0;
                 viewProperty2.IsReadOnly = num4 != 0;
                 properties2.Add(viewProperty2);
@@ -113,8 +117,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 viewProperty3.Name = str5;
                 int num5 = 0;
                 viewProperty3.IsRequired = num5 != 0;
-                string str6 = (review != null ? review.Text : (string)null) ?? string.Empty;
-                viewProperty3.RawValue = (object)str6;
+                string str6 = (review != null ? review.Text : null) ?? string.Empty;
+                viewProperty3.RawValue = str6;
                 int num6 = 0;
                 viewProperty3.IsReadOnly = num6 != 0;
                 string str7 = "MultiLine";

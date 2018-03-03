@@ -8,12 +8,14 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
 {
     using System;
     using System.Threading.Tasks;
-    using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Core.Commands;
+
     using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
     using Sitecore.Commerce.Plugin.Catalog;
+
+    using Sitecore.Commerce.Core;
+    using Sitecore.Commerce.Core.Commands;
 
     /// <inheritdoc />
     /// <summary>

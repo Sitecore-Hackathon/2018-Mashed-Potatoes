@@ -10,10 +10,11 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
     using System.Threading.Tasks;
     using System.Web.Http.OData;
 
+    using MashedPotatoes.Commerce.Plugin.Reviews.Commands;
+
     using Microsoft.AspNetCore.Mvc;
 
     using Sitecore.Commerce.Core;
-    using MashedPotatoes.Commerce.Plugin.Reviews.Commands;
 
     /// <inheritdoc />
     /// <summary>

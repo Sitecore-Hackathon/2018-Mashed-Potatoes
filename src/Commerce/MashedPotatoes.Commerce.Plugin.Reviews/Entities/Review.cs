@@ -57,7 +57,7 @@
         ///// <summary>
         ///// Gets or sets the list of child components in the SampleEntity
         ///// </summary>
-        //[Contained]
-        //public IEnumerable<SampleComponent> ChildComponents { get; set; }
+        // [Contained]
+        // public IEnumerable<SampleComponent> ChildComponents { get; set; }
     }
 }

@@ -8,11 +8,12 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews
 {
     using System.Threading.Tasks;
 
+    using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
+
     using Microsoft.AspNetCore.OData.Builder;
 
     using Sitecore.Commerce.Core;
     using Sitecore.Commerce.Core.Commands;
-    using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using Sitecore.Framework.Conditions;
     using Sitecore.Framework.Pipelines;
 

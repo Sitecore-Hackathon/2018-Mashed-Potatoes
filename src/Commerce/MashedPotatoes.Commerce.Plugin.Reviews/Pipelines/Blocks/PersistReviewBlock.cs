@@ -31,8 +31,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
         public override async Task<Review> Run(Review review, CommercePipelineExecutionContext context)
         {
             PersistReviewBlock persistCouponBlock = this;
-            Condition.Requires<Review>(review).IsNotNull<Review>("The Coupon can not be null");
-            PersistEntityArgument persistEntityArgument = await persistCouponBlock._persistEntityPipeline.Run(new PersistEntityArgument((CommerceEntity)review), context);
+            Condition.Requires(review).IsNotNull("The Coupon can not be null");
+            PersistEntityArgument persistEntityArgument = await persistCouponBlock._persistEntityPipeline.Run(new PersistEntityArgument(review), context);
             return review;
         }
     }
