@@ -6,6 +6,7 @@ using MashedPotatoes.Commerce.Plugin.Reviews.Policies;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
+using Sitecore.Commerce.Plugin.Reviews.Entities;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 
@@ -26,7 +27,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 return Task.FromResult<EntityView>(entityView);
             if (entityViewArgument.ForAction.Equals(context.GetPolicy<KnownReviewsActionsPolicy>().AddReview, StringComparison.OrdinalIgnoreCase) && entityViewArgument.ViewName.Equals(context.GetPolicy<KnownReviewsViewsPolicy>().Details, StringComparison.OrdinalIgnoreCase))
             {
-                this.PopulateDetails(entityView, (Review)null, true, false, context);
+                this.PopulateDetails(entityView, null, true, false, context);
                 return Task.FromResult<EntityView>(entityView);
             }
             bool isEditAction = entityViewArgument.ForAction.Equals(context.GetPolicy<KnownReviewsActionsPolicy>().EditReview, StringComparison.OrdinalIgnoreCase);
@@ -49,7 +50,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
             return Task.FromResult<EntityView>(entityView);
         }
 
-        private void PopulateDetails(EntityView view, Review book, bool isAddAction, bool isEditAction, CommercePipelineExecutionContext context)
+        private void PopulateDetails(EntityView view, Review review, bool isAddAction, bool isEditAction, CommercePipelineExecutionContext context)
         {
             if (view == null)
                 return;
@@ -59,7 +60,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 ViewProperty viewProperty = new ViewProperty();
                 string str1 = "Description";
                 viewProperty.Name = str1;
-                string str2 = (book != null ? book.Description : (string)null) ?? string.Empty;
+                string str2 = (review != null ? review.ReviewText : (string)null) ?? string.Empty;
                 viewProperty.RawValue = (object)str2;
                 int num1 = 1;
                 viewProperty.IsReadOnly = num1 != 0;
@@ -75,7 +76,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 ViewProperty viewProperty1 = new ViewProperty();
                 string str1 = "Name";
                 viewProperty1.Name = str1;
-                string str2 = (book != null ? book.Name : (string)null) ?? string.Empty;
+                string str2 = (review != null ? review.Name : (string)null) ?? string.Empty;
                 viewProperty1.RawValue = (object)str2;
                 int num1 = isEditAction ? 1 : 0;
                 viewProperty1.IsHidden = num1 != 0;
@@ -102,7 +103,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 viewProperty2.Name = str3;
                 int num3 = 0;
                 viewProperty2.IsRequired = num3 != 0;
-                string str4 = (book != null ? book.DisplayName : (string)null) ?? string.Empty;
+                string str4 = (review != null ? review.DisplayName : (string)null) ?? string.Empty;
                 viewProperty2.RawValue = (object)str4;
                 int num4 = 0;
                 viewProperty2.IsReadOnly = num4 != 0;
@@ -113,7 +114,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 viewProperty3.Name = str5;
                 int num5 = 0;
                 viewProperty3.IsRequired = num5 != 0;
-                string str6 = (book != null ? book.Description : (string)null) ?? string.Empty;
+                string str6 = (review != null ? review.ReviewText : (string)null) ?? string.Empty;
                 viewProperty3.RawValue = (object)str6;
                 int num6 = 0;
                 viewProperty3.IsReadOnly = num6 != 0;

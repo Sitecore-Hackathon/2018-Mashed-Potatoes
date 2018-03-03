@@ -54,11 +54,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\data\Environments\" />
+    <ProjectReference Include="..\MashedPotatoes.Commerce.Plugin.Reviews\MashedPotatoes.Commerce.Plugin.Reviews.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MashedPotatoes.Commerce.Plugin.Reviews\MashedPotatoes.Commerce.Plugin.Reviews.csproj" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">

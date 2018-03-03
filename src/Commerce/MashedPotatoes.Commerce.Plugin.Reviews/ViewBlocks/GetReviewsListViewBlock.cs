@@ -7,6 +7,7 @@ using MashedPotatoes.Commerce.Plugin.Reviews.Policies;
 
 using Sitecore.Commerce.Core;
 using Sitecore.Commerce.EntityViews;
+using Sitecore.Commerce.Plugin.Reviews.Entities;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 
@@ -42,18 +43,18 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 books = entityView;
             string listName = string.Format("{0}", (object)CommerceEntity.ListName<Review>());
             await reviewsListViewBlock.SetListMetadata(books, listName, context.GetPolicy<KnownReviewsActionsPolicy>().PaginateReviews, context);
-            (await reviewsListViewBlock.GetEntities(books, listName, context)).OfType<Review>().ForEach<Review>((Action<Review>)(book =>
+            (await reviewsListViewBlock.GetEntities(books, listName, context)).OfType<Review>().ForEach<Review>((Action<Review>)(review =>
             {
                 EntityView entityView1 = new EntityView();
-                entityView1.EntityId = book.Id;
-                entityView1.ItemId = book.Id;
+                entityView1.EntityId = review.Id;
+                entityView1.ItemId = review.Id;
                 string summary = context.GetPolicy<KnownReviewsViewsPolicy>().Summary;
                 entityView1.Name = summary;
                 EntityView entityView2 = entityView1;
                 List<ViewProperty> properties1 = entityView2.Properties;
                 ViewProperty viewProperty1 = new ViewProperty();
                 viewProperty1.Name = "ItemId";
-                viewProperty1.RawValue = (object)book.Id;
+                viewProperty1.RawValue = (object)review.Id;
                 int num1 = 1;
                 viewProperty1.IsReadOnly = num1 != 0;
                 int num2 = 1;
@@ -62,7 +63,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 List<ViewProperty> properties2 = entityView2.Properties;
                 ViewProperty viewProperty2 = new ViewProperty();
                 viewProperty2.Name = "Name";
-                viewProperty2.RawValue = (object)book.Name;
+                viewProperty2.RawValue = (object)review.Name;
                 int num3 = 1;
                 viewProperty2.IsReadOnly = num3 != 0;
                 string str = "EntityLink";
@@ -71,14 +72,14 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 List<ViewProperty> properties3 = entityView2.Properties;
                 ViewProperty viewProperty3 = new ViewProperty();
                 viewProperty3.Name = "Description";
-                viewProperty3.RawValue = (object)book.Description;
+                viewProperty3.RawValue = (object)review.ReviewText;
                 int num4 = 1;
                 viewProperty3.IsReadOnly = num4 != 0;
                 properties3.Add(viewProperty3);
                 List<ViewProperty> properties4 = entityView2.Properties;
                 ViewProperty viewProperty4 = new ViewProperty();
                 viewProperty4.Name = "DisplayName";
-                viewProperty4.RawValue = (object)book.DisplayName;
+                viewProperty4.RawValue = (object)review.DisplayName;
                 int num5 = 1;
                 viewProperty4.IsReadOnly = num5 != 0;
                 properties4.Add(viewProperty4);

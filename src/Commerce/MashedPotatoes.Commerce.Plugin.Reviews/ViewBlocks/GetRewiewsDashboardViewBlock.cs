@@ -23,11 +23,16 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
         {
             GetRewiewsDashboardViewBlock dashboardViewBlock = this;
             // ISSUE: explicit non-virtual call
-            Condition.Requires<EntityView>(entityView).IsNotNull<EntityView>(string.Format("{0}: The argument cannot be null.", (object)/*__nonvirtual*/(dashboardViewBlock.Name)));
-            EntityViewArgument entityViewArgument = context.CommerceContext.GetObjects<EntityViewArgument>().FirstOrDefault<EntityViewArgument>();
-            if (string.IsNullOrEmpty(entityViewArgument?.ViewName) || !entityViewArgument.ViewName.Equals(context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard, StringComparison.OrdinalIgnoreCase))
+            Condition.Requires(entityView).IsNotNull(string.Format("{0}: The argument cannot be null.", (object)/*__nonvirtual*/(dashboardViewBlock.Name)));
+            EntityViewArgument entityViewArgument = context.CommerceContext.GetObjects<EntityViewArgument>().FirstOrDefault();
+            if (string.IsNullOrEmpty(entityViewArgument?.ViewName) || !entityViewArgument.ViewName.Equals(
+                    context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard,
+                    StringComparison.OrdinalIgnoreCase))
+            {
                 return entityView;
-            return await Task.FromResult<EntityView>(entityView);
+            }
+
+            return await Task.FromResult(entityView);
         }
     }
 }

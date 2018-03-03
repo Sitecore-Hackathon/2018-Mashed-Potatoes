@@ -20,7 +20,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
 
         public override Task<EntityView> Run(EntityView entityView, CommercePipelineExecutionContext context)
         {
-            Condition.Requires<EntityView>(entityView).IsNotNull<EntityView>(string.Format("{0}: The argument cannot be null.", (object)this.Name));
+            Condition.Requires(entityView).IsNotNull(string.Format("{0}: The argument cannot be null.", (object)this.Name));
             EntityView entityView1 = new EntityView();
             string promotionsDashboard1 = context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard;
             entityView1.Name = promotionsDashboard1;
