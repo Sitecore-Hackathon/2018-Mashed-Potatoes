@@ -4,7 +4,7 @@
 //// </copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-//namespace Sitecore.Commerce.Plugin.Reviews
+//namespace MashedPotatoes.Commerce.Plugin.Reviews
 //{
 //    using Sitecore.Commerce.Core;
 

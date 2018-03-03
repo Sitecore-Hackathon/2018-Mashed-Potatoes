@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sitecore.Commerce.Plugin.Reviews.Pipelines.Blocks
+namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
 {
     using System;
     using System.Collections.Generic;
@@ -12,9 +12,9 @@ namespace Sitecore.Commerce.Plugin.Reviews.Pipelines.Blocks
     using System.Threading.Tasks;
 
     using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Plugin.Reviews.Entities;
-    using Sitecore.Commerce.Plugin.Reviews.Models;
-    using Sitecore.Commerce.Plugin.Reviews.Pipelines.Arguments;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Models;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
     using Sitecore.Framework.Conditions;
     using Sitecore.Framework.Pipelines;
 
@@ -23,8 +23,8 @@ namespace Sitecore.Commerce.Plugin.Reviews.Pipelines.Blocks
     /// </summary>
     /// <seealso>
     ///     <cref>
-    ///         Sitecore.Framework.Pipelines.PipelineBlock{Sitecore.Commerce.Plugin.Reviews.SampleArgument,
-    ///         Sitecore.Commerce.Plugin.Reviews.SampleEntity, Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+    ///         Sitecore.Framework.Pipelines.PipelineBlock{MashedPotatoes.Commerce.Plugin.Reviews.SampleArgument,
+    ///         MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity, Sitecore.Commerce.Core.CommercePipelineExecutionContext}
     ///     </cref>
     /// </seealso>
     [PipelineDisplayName("Reviews.AddReviewBlock")]

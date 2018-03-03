@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Commerce.Plugin.Reviews
+﻿namespace MashedPotatoes.Commerce.Plugin.Reviews
 {
     public static class Constants
     {

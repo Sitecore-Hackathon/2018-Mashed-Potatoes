@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sitecore.Commerce.Plugin.Reviews
+namespace MashedPotatoes.Commerce.Plugin.Reviews
 {
     using System.Threading.Tasks;
 
@@ -12,7 +12,7 @@ namespace Sitecore.Commerce.Plugin.Reviews
 
     using Sitecore.Commerce.Core;
     using Sitecore.Commerce.Core.Commands;
-    using Sitecore.Commerce.Plugin.Reviews.Entities;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using Sitecore.Framework.Conditions;
     using Sitecore.Framework.Pipelines;
 

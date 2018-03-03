@@ -4,13 +4,15 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sitecore.Commerce.Plugin.Reviews
+using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks;
+
+namespace MashedPotatoes.Commerce.Plugin.Reviews
 {
     using System.Reflection;
     using Microsoft.Extensions.DependencyInjection;
     using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Plugin.Reviews.Pipelines;
-    using Sitecore.Commerce.Plugin.Reviews.Pipelines.Blocks;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks;
     using Sitecore.Framework.Configuration;
     using Sitecore.Framework.Pipelines.Definitions.Extensions;
 
@@ -35,7 +37,7 @@ namespace Sitecore.Commerce.Plugin.Reviews
              .AddPipeline<IAddReviewPipeline, AddReviewPipeline>(
                     configure =>
                         {
-                            configure.Add<AddReviewBlock>();
+                            configure.Add<AddReviewBlock>().Add<PersistReviewBlock>();
                         })
 
                .ConfigurePipeline<IConfigureServiceApiPipeline>(configure => configure.Add<ConfigureServiceApiBlock>()));

@@ -27,7 +27,7 @@
     <Content Include="Entities\SampleEntity.cs" />
     <Content Include="Models\SampleModel.cs" />
     <Content Include="Pipelines\Arguments\SampleArgument.cs" />
-    <Content Include="Pipelines\Blocks\SampleBlock.cs" />
+    <Content Include="Pipelines\Blocks\PersistReviewBlock.cs" />
     <Content Include="Pipelines\ISamplePipeline.cs" />
     <Content Include="Pipelines\SamplePipeline.cs" />
     <Content Include="Policies\SamplePolicy.cs" />

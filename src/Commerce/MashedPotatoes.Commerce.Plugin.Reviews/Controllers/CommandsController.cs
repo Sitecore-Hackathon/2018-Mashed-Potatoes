@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sitecore.Commerce.Plugin.Reviews.Controllers
+namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
 {
     using System;
     using System.Threading.Tasks;
@@ -13,7 +13,7 @@ namespace Sitecore.Commerce.Plugin.Reviews.Controllers
     using Microsoft.AspNetCore.Mvc;
 
     using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Plugin.Reviews.Commands;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Commands;
 
     /// <inheritdoc />
     /// <summary>
@@ -24,7 +24,7 @@ namespace Sitecore.Commerce.Plugin.Reviews.Controllers
     {
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Sitecore.Commerce.Plugin.Reviews.CommandsController" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.CommandsController" /> class.
         /// </summary>
         /// <param name="serviceProvider">The service provider.</param>
         /// <param name="globalEnvironment">The global environment.</param>

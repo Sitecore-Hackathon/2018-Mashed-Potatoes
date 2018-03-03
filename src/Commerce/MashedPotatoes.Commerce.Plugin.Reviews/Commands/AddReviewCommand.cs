@@ -4,15 +4,15 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sitecore.Commerce.Plugin.Reviews.Commands
+namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
 {
     using System;
     using System.Threading.Tasks;
     using Sitecore.Commerce.Core;
     using Sitecore.Commerce.Core.Commands;
-    using Sitecore.Commerce.Plugin.Reviews.Entities;
-    using Sitecore.Commerce.Plugin.Reviews.Pipelines;
-    using Sitecore.Commerce.Plugin.Reviews.Pipelines.Arguments;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
 
     /// <inheritdoc />
     /// <summary>
@@ -27,7 +27,7 @@ namespace Sitecore.Commerce.Plugin.Reviews.Commands
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Sitecore.Commerce.Plugin.Reviews.SampleCommand" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleCommand" /> class.
         /// </summary>
         /// <param name="pipeline">
         /// The pipeline.

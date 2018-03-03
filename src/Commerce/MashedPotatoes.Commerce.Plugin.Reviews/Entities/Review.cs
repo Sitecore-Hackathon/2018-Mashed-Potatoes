@@ -1,4 +1,4 @@
-﻿namespace Sitecore.Commerce.Plugin.Reviews.Entities
+﻿namespace MashedPotatoes.Commerce.Plugin.Reviews.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@
     {
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Sitecore.Commerce.Plugin.Reviews.SampleEntity" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity" /> class.
         /// </summary>
         public Review()
         {
@@ -24,7 +24,7 @@
 
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Sitecore.Commerce.Plugin.Reviews.SampleEntity" /> class. 
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity" /> class. 
         /// Public Constructor
         /// </summary>
         /// <param name="id">

@@ -4,11 +4,11 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sitecore.Commerce.Plugin.Reviews.Pipelines
+namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines
 {
     using Sitecore.Commerce.Core;
-    using Sitecore.Commerce.Plugin.Reviews.Entities;
-    using Sitecore.Commerce.Plugin.Reviews.Pipelines.Arguments;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
+    using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
     using Sitecore.Framework.Pipelines;
 
     /// <summary>
@@ -16,8 +16,8 @@ namespace Sitecore.Commerce.Plugin.Reviews.Pipelines
     /// </summary>
     /// <seealso>
     ///     <cref>
-    ///         Sitecore.Framework.Pipelines.IPipeline{Sitecore.Commerce.Plugin.Reviews.SampleArgument,
-    ///         Sitecore.Commerce.Plugin.Reviews.SampleEntity, Sitecore.Commerce.Core.CommercePipelineExecutionContext}
+    ///         Sitecore.Framework.Pipelines.IPipeline{MashedPotatoes.Commerce.Plugin.Reviews.SampleArgument,
+    ///         MashedPotatoes.Commerce.Plugin.Reviews.SampleEntity, Sitecore.Commerce.Core.CommercePipelineExecutionContext}
     ///     </cref>
     /// </seealso>
     [PipelineDisplayName("AddReviewPipeline")]

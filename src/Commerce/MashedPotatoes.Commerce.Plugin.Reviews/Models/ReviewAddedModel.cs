@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sitecore.Commerce.Plugin.Reviews.Models
+namespace MashedPotatoes.Commerce.Plugin.Reviews.Models
 {
     using Sitecore.Commerce.Core;
 
@@ -17,7 +17,7 @@ namespace Sitecore.Commerce.Plugin.Reviews.Models
     {
         /// <inheritdoc />
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:Sitecore.Commerce.Plugin.Reviews.SampleModel" /> class.
+        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleModel" /> class.
         /// </summary>
         public ReviewAddedModel(string id)
         {

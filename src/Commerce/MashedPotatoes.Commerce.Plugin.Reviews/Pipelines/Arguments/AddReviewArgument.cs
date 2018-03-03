@@ -4,7 +4,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Sitecore.Commerce.Plugin.Reviews.Pipelines.Arguments
+namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments
 {
     using Sitecore.Commerce.Core;
     using Sitecore.Framework.Conditions;

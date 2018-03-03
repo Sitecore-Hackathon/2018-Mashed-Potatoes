@@ -4,7 +4,7 @@
 //// </copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-//namespace Sitecore.Commerce.Plugin.Reviews
+//namespace MashedPotatoes.Commerce.Plugin.Reviews
 //{
 //    using System;
 //    using System.Threading.Tasks;
@@ -24,7 +24,7 @@
 //    {
 //        /// <inheritdoc />
 //        /// <summary>
-//        /// Initializes a new instance of the <see cref="T:Sitecore.Commerce.Plugin.Reviews.SampleController" /> class.
+//        /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleController" /> class.
 //        /// </summary>
 //        /// <param name="serviceProvider">The service provider.</param>
 //        /// <param name="globalEnvironment">The global environment.</param>
