@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using Microsoft.AspNetCore.OData.Builder;
     using Sitecore.Commerce.Core;
 
     /// <inheritdoc />
@@ -38,12 +37,17 @@
         /// <summary>
         /// Gets or sets the review text.
         /// </summary>
-        public string ReviewText { get; set; }
+        public string Text { get; set; }
 
         /// <summary>
-        /// Gets or sets the rating.
+        /// Gets or sets the author text.
         /// </summary>
-        public string Rating { get; set; }
+        public string Author { get; set; }
+
+        /// <summary>
+        /// Gets or sets the score.
+        /// </summary>
+        public int Score  { get; set; }
 
         /// <summary>
         /// Gets or sets the ProductReference.

@@ -59,7 +59,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 ViewProperty viewProperty = new ViewProperty();
                 string str1 = "Description";
                 viewProperty.Name = str1;
-                string str2 = (review != null ? review.ReviewText : (string)null) ?? string.Empty;
+                string str2 = (review != null ? review.Text : (string)null) ?? string.Empty;
                 viewProperty.RawValue = (object)str2;
                 int num1 = 1;
                 viewProperty.IsReadOnly = num1 != 0;
@@ -113,7 +113,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 viewProperty3.Name = str5;
                 int num5 = 0;
                 viewProperty3.IsRequired = num5 != 0;
-                string str6 = (review != null ? review.ReviewText : (string)null) ?? string.Empty;
+                string str6 = (review != null ? review.Text : (string)null) ?? string.Empty;
                 viewProperty3.RawValue = (object)str6;
                 int num6 = 0;
                 viewProperty3.IsReadOnly = num6 != 0;

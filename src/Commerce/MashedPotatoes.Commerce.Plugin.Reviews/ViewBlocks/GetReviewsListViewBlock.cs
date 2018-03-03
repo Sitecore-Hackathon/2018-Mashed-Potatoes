@@ -72,7 +72,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 List<ViewProperty> properties3 = entityView2.Properties;
                 ViewProperty viewProperty3 = new ViewProperty();
                 viewProperty3.Name = "Description";
-                viewProperty3.RawValue = (object)review.ReviewText;
+                viewProperty3.RawValue = (object)review.Text;
                 int num4 = 1;
                 viewProperty3.IsReadOnly = num4 != 0;
                 properties3.Add(viewProperty3);

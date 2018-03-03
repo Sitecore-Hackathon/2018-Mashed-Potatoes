@@ -13,6 +13,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
     using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
+    using Sitecore.Commerce.Plugin.Catalog;
 
     /// <inheritdoc />
     /// <summary>
@@ -24,7 +25,6 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
         /// The _pipeline.
         /// </summary>
         private readonly IAddReviewPipeline _pipeline;
-
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleCommand" /> class.
@@ -58,10 +58,11 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Commands
             using (var activity = CommandActivity.Start(commerceContext, this))
             {
                 var arg = new AddReviewArgument(productId, reviewText);
+
                 var result = await this._pipeline.Run(arg, new CommercePipelineExecutionContextOptions(commerceContext));
 
                 return result;
-            }
+            } 
         }
     }
 }

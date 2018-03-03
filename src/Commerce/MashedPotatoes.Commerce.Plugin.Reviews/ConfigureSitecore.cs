@@ -33,7 +33,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews
                 config => config
                     .AddPipeline<IAddReviewPipeline, AddReviewPipeline>(configure =>
                             {
-                                configure.Add<AddReviewBlock>().Add<PersistReviewBlock>();
+                                configure.Add<InsureSellableItemBlock>().Add<AddReviewBlock>().Add<PersistReviewBlock>();
                             })
                     .ConfigurePipeline<IConfigureServiceApiPipeline>(configure => configure.Add<ConfigureServiceApiBlock>())
                     .ConfigurePipeline<IBizFxNavigationPipeline>(configure => configure.Add<GetReviewsNavigationViewBlock>().After<GetNavigationViewBlock>())

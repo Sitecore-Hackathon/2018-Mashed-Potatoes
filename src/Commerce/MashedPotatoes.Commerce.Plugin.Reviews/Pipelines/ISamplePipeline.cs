@@ -18,5 +18,5 @@
     [PipelineDisplayName("SamplePipeline")]
     public interface ISamplePipeline : IPipeline<SampleArgument, SampleEntity, CommercePipelineExecutionContext>
     {
-    }
+    } 
 }

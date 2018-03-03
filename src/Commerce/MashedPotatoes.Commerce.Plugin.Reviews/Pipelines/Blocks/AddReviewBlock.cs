@@ -17,6 +17,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
     using Sitecore.Framework.Conditions;
     using Sitecore.Framework.Pipelines;
+    using Sitecore.Commerce.Plugin.ManagedLists;
 
     /// <summary>
     /// Defines a block
@@ -34,7 +35,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
 
         public AddReviewBlock(IFindEntityPipeline findEntityPipeline) : base()
         {
-            this.findEntityPipeline = findEntityPipeline;
+            this.findEntityPipeline = findEntityPipeline; 
         }
 
         /// <summary>
@@ -63,8 +64,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
             string reviewId = Guid.NewGuid().ToString();//string.Format("{0}{1}", (object)CommerceEntity.IdPrefix<Review>(), (object)arg.Code);
 
             Review review = new Review();
-            review.Id = reviewId;
-            review.ReviewText = arg.ReviewsText;
+            review.Id = $"{(object)CommerceEntity.IdPrefix<Review>()}{(object)reviewId}";
+            review.Text = arg.ReviewsText;
 
             DateTimeOffset? nullable1 = new DateTimeOffset?(DateTimeOffset.UtcNow);
             review.DateCreated = nullable1;
@@ -81,6 +82,22 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
 
             string name = review.Name;
             reviewAdded.Name = name;
+
+            review.ProductReference = new EntityReference()
+            {
+                EntityTarget = arg.Product.Id,
+                Name = arg.Product.Name
+            };
+
+            Review review2 = review;
+
+            review2.SetComponent(new ListMembershipsComponent()
+            {
+                Memberships = new List<string>()
+                  {
+                    CommerceEntity.ListName<Review>()
+                  }
+            });
 
             commerceContext1.AddModel((Model)reviewAdded);
 

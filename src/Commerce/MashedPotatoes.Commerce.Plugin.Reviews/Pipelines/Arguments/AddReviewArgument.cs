@@ -4,6 +4,8 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using Sitecore.Commerce.Plugin.Catalog;
+
 namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments
 {
     using Sitecore.Commerce.Core;
@@ -41,6 +43,14 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments
         /// The parameter.
         /// </value>
         public string ProductId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the parameter.
+        /// </summary>
+        /// <value>
+        /// The parameter.
+        /// </value>
+        public SellableItem Product { get; set; }
 
         /// <summary>
         /// Gets or sets the reviews text.
