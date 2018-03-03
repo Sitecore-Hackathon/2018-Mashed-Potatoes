@@ -1,1 +1,65 @@
-﻿<h1>test</h1>
+﻿@using Sitecore.Mvc
+@model IEnumerable<MashedPotatoes.Feature.Reviews.Models.Review>
+
+@* it doesn't support SXA at the moment :) *@
+@* and it's just for demo purposes :) *@
+
+@if (Model != null)
+{
+    foreach (var review in Model)
+    {
+        <div class="col-xs-12 container-rounded">
+            <div class="cxa-productinformation-component col-xs-12">
+                <div class="component-content">
+                    <div class="product-name">
+                        <h1>@review.Author Vladimir Zaverugo</h1>
+                    </div>
+                    <div class="product-description">
+                        <h6>Description:</h6>
+                        <p class="description">@review.Text Grab pro-level footage in 4K resolution, with advanced image stabilization to counteract vibration and 240p recording for super slow-motion HD video. All in a splash proof body with manual controls, stereo mic with wind noise-reduction and built-in wireless. Edit your best shots right from within the camera.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="component cxa-productinventory-component">
+                <div class="component-content">
+                    <div class="stock-info">
+                        <label class="stock-count-label">Score:</label>
+                        <span class="stock-availability-date">@review.Score 5</span>
+                    </div>
+                    <div class="stock-info">
+                        <label class="stock-count-label">Review Added:</label>
+                        <span class="stock-availability-date">@review.Date 2018/03/03</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="col-xs-12 container-rounded">
+        <div class="cxa-productinformation-component col-xs-12">
+            <div class="component-content">
+                <div class="product-name">
+                    <h1>Vladimir Zaverugo</h1>
+                </div>
+                <div class="product-description">
+                    <h6>Description:</h6>
+                    <p class="description">Grab pro-level footage in 4K resolution, with advanced image stabilization to counteract vibration and 240p recording for super slow-motion HD video. All in a splash proof body with manual controls, stereo mic with wind noise-reduction and built-in wireless. Edit your best shots right from within the camera.</p>
+                </div>
+            </div>
+        </div>
+        <div class="component cxa-productinventory-component">
+            <div class="component-content">
+                <div class="stock-info">
+                    <label class="stock-count-label">Score:</label>
+                    <span class="stock-availability-date">5</span>
+                </div>
+                <div class="stock-info">
+                    <label class="stock-count-label">Review Added:</label>
+                    <span class="stock-availability-date">2018/03/03</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}

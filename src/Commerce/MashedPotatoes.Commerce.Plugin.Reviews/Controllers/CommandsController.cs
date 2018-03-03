@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="CommandsController.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
+﻿namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
 {
     using System;
     using System.Threading.Tasks;
@@ -16,11 +10,6 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
 
     using Sitecore.Commerce.Core;
 
-    /// <inheritdoc />
-    /// <summary>
-    /// Defines a controller
-    /// </summary>
-    /// <seealso cref="T:Sitecore.Commerce.Core.CommerceController" />
     public class CommandsController : CommerceController
     {
         /// <inheritdoc />
@@ -43,13 +32,23 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Controllers
         [Route("AddReview()")]
         public async Task<IActionResult> AddReview([FromBody] ODataActionParameters value)
         {
-            var productId = value[Constants.ProductId].ToString();
-            var reviewText = value[Constants.ReviewText].ToString();
+            if (value.ContainsKey(Constants.ProductId) && value.ContainsKey(Constants.ReviewText))
+            {
+                var productId = value[Constants.ProductId].ToString();
+                var reviewText = value[Constants.ReviewText].ToString();
+                var author = value[Constants.Author].ToString();
 
-            var command = this.Command<AddReviewCommand>();
-            var result = await command.Process(this.CurrentContext, productId, reviewText);
+                int score;
 
-            return new ObjectResult(command);
+                int.TryParse(value[Constants.Score].ToString(), out score);
+
+                var command = this.Command<AddReviewCommand>();
+                var result = await command.Process(this.CurrentContext, productId, reviewText, author, score);
+
+                return new ObjectResult(command);
+            }
+
+            return new BadRequestObjectResult(value);
         }
     }
 }

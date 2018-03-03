@@ -32,8 +32,6 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
 
             args.Product = productItem;
 
-            //string str = await context.AddMessage(context.GetPolicy<KnownResultCodes>().ValidationError, "EntityNotFound", null, "Entity was not found.");
-
             return args;
         } 
     }
