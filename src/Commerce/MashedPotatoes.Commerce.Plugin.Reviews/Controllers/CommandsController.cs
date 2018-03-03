@@ -43,7 +43,7 @@
                 int.TryParse(value[Constants.Score].ToString(), out score);
 
                 var command = this.Command<AddReviewCommand>();
-                var result = await command.Process(this.CurrentContext, productId, reviewText, author, score);
+                await command.Process(this.CurrentContext, productId, reviewText, author, score);
 
                 return new ObjectResult(command);
             }

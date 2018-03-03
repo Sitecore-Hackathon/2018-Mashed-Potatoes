@@ -24,7 +24,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
         {
             InsureSellableItemBlock insureSellableItemBlock = this;
 
-            Condition.Requires(args).IsNotNull<AddReviewArgument>(string.Format("{0}: The block argument cannot be null.", insureSellableItemBlock.Name));
+            Condition.Requires(args).IsNotNull($"{insureSellableItemBlock.Name}: The block argument cannot be null.");
 
             FindEntityArgument findEntityArgument = new FindEntityArgument(typeof(SellableItem), args.ProductId.EnsurePrefix(CommerceEntity.IdPrefix<SellableItem>()), false);
 

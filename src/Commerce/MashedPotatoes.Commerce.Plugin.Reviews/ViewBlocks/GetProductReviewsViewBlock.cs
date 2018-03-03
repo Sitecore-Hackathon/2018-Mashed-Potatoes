@@ -32,7 +32,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
             Condition.Requires(entityView).IsNotNull($"{detailsViewBlock.Name}: The argument cannot be null");
             KnownRelationshipViewsPolicy policy1 = context.GetPolicy<KnownRelationshipViewsPolicy>();
             EntityViewArgument entityViewArgument = context.CommerceContext.GetObject<EntityViewArgument>();
-            if (string.IsNullOrEmpty(entityViewArgument != null ? entityViewArgument.ViewName : null)
+            if (string.IsNullOrEmpty(entityViewArgument?.ViewName)
                 || !entityViewArgument.ViewName.Equals(policy1.Master, StringComparison.OrdinalIgnoreCase))
             {
                 return entityView;
@@ -61,8 +61,8 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                                   new FindEntitiesInListArgument(
                                       typeof(Review),
                                       CommerceEntity.ListName<Review>(),
-                                          0,
-                                          Int32.MaxValue),
+                                      0,
+                                      int.MaxValue),
                                       context);
 
             reviewsEntities.List.Items.Where(_ => ((Review)_).ProductReference.EntityTarget == entityView.EntityId).ForEach(
@@ -70,7 +70,13 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 {
                     var review = reviewEntity as Review;
 
-                    EntityView entityView1 = new EntityView { EntityId = review.ProductReference.EntityTarget, ItemId = review.ProductReference.EntityTarget };
+                    EntityView entityView1 = 
+                        new EntityView
+                        {
+                            EntityId = review.ProductReference.EntityTarget,
+                            ItemId = review.ProductReference.EntityTarget
+                        };
+
                     string summary = context.GetPolicy<KnownReviewsViewsPolicy>().Summary;
                     entityView1.Name = summary;
 
@@ -78,22 +84,22 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
 
                     List<ViewProperty> properties1 = entityView2.Properties;
                     ViewProperty viewProperty1 = new ViewProperty
-                    {
-                        Name = "ItemId",
-                        DisplayName = "Item Id",
-                        Value = review.Id
- 
-                    };
+                        {
+                            Name = "ItemId",
+                            DisplayName = "Item Id",
+                            Value = review.Id 
+                        };
 
                     properties1.Add(viewProperty1);
 
                     List<ViewProperty> properties2 = entityView2.Properties;
-                    ViewProperty viewProperty2 = new ViewProperty
-                    {
-                        Name = "Score",
-                        DisplayName = "Score",
-                        Value = review.Score.ToString()
-                    };
+                    ViewProperty viewProperty2 = 
+                        new ViewProperty
+                        {
+                            Name = "Score",
+                            DisplayName = "Score",
+                            Value = review.Score.ToString()
+                        };
 
                     properties2.Add(viewProperty2);
 
@@ -110,13 +116,23 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
 
                     List<ViewProperty> properties4 = entityView2.Properties;
                     ViewProperty viewProperty4 =
-                        new ViewProperty { Name = "Author", DisplayName = "Author", Value = review.DisplayName };
-
+                        new ViewProperty
+                        {
+                            Name = "Author",
+                            DisplayName = "Author",
+                            Value = review.DisplayName
+                        };
+                    
                     properties4.Add(viewProperty4);
 
                     List<ViewProperty> properties5 = entityView2.Properties;
                     ViewProperty viewProperty5 =
-                        new ViewProperty { Name = "Date", DisplayName = "Date", Value = review.DisplayName };
+                        new ViewProperty
+                        {
+                            Name = "Date",
+                            DisplayName = "Date",
+                            Value = review.DisplayName
+                        };
 
                     properties5.Add(viewProperty5);
 

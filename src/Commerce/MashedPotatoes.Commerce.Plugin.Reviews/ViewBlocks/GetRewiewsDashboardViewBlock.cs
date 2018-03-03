@@ -28,7 +28,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
             EntityViewArgument entityViewArgument =
                 context.CommerceContext.GetObjects<EntityViewArgument>().FirstOrDefault();
             if (string.IsNullOrEmpty(entityViewArgument?.ViewName) || !entityViewArgument.ViewName.Equals(
-                    context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard,
+                    context.GetPolicy<KnownReviewsViewsPolicy>().Reviews,
                     StringComparison.OrdinalIgnoreCase))
             {
                 return entityView;

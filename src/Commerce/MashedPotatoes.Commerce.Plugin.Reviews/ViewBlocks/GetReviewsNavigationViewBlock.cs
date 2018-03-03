@@ -10,7 +10,7 @@ using Sitecore.Framework.Pipelines;
 namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
 {
 
-    [PipelineDisplayName("Promotions.block.GetPromotionsNavigationView")]
+    [PipelineDisplayName("Reviews.block.GetReviewsNavigationView")]
     public class GetReviewsNavigationViewBlock : PipelineBlock<EntityView, EntityView, CommercePipelineExecutionContext>
     {
         public GetReviewsNavigationViewBlock()
@@ -22,9 +22,9 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
         {
             Condition.Requires(entityView).IsNotNull($"{this.Name}: The argument cannot be null.");
             EntityView entityView1 = new EntityView();
-            string promotionsDashboard1 = context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard;
+            string promotionsDashboard1 = context.GetPolicy<KnownReviewsViewsPolicy>().Reviews;
             entityView1.Name = promotionsDashboard1;
-            string promotionsDashboard2 = context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard;
+            string promotionsDashboard2 = context.GetPolicy<KnownReviewsViewsPolicy>().Reviews;
             entityView1.ItemId = promotionsDashboard2;
             string str = "pencil";
             entityView1.Icon = str;

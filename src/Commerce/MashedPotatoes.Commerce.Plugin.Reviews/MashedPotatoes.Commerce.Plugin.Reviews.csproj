@@ -23,7 +23,6 @@
   <ItemGroup>
     <Content Include="ConfigureServiceApiBlock.cs" />
     <Content Include="ConfigureSitecore.cs" />
-    <Content Include="Components\SampleComponent.cs" />
     <Content Include="Controllers\CommandsController.cs" />
     <Content Include="Controllers\ReviewsController.cs" />
     <Content Include="Pipelines\Blocks\PersistReviewBlock.cs" />

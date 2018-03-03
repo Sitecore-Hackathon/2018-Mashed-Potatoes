@@ -19,7 +19,9 @@
         /// <summary>
         /// The _pipeline.
         /// </summary>
-        private readonly IAddReviewPipeline _pipeline;
+        private readonly IAddReviewPipeline pipeline;
+       
+
         /// <inheritdoc />
         /// <summary>
         /// Initializes a new instance of the <see cref="T:MashedPotatoes.Commerce.Plugin.Reviews.SampleCommand" /> class.
@@ -30,7 +32,7 @@
         /// <param name="serviceProvider">The service provider</param>
         public AddReviewCommand(IAddReviewPipeline pipeline, IServiceProvider serviceProvider) : base(serviceProvider)
         {
-            this._pipeline = pipeline;
+            this.pipeline = pipeline;
         }
 
         /// <summary>
@@ -56,7 +58,7 @@
             {
                 var arg = new AddReviewArgument(productId, reviewText, author, score);
 
-                var result = await this._pipeline.Run(arg, new CommercePipelineExecutionContextOptions(commerceContext));
+                var result = await this.pipeline.Run(arg, new CommercePipelineExecutionContextOptions(commerceContext));
 
                 return result;
             }

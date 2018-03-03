@@ -55,8 +55,14 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments
         /// </summary>
         public string ReviewsText { get; set; }
 
+        /// <summary>
+        /// Gets or sets the reviews author.
+        /// </summary>
         public string Author { get; set; }
 
+        /// <summary>
+        /// Gets or sets the reviews score.
+        /// </summary>
         public int Score { get; set; }
     }
 }

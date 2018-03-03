@@ -28,7 +28,7 @@
         {
             ReviewsController reviewsController = this;
             CommerceList<Review> commerceList = await reviewsController.Command<FindEntitiesInListCommand>().Process<Review>(reviewsController.CurrentContext, CommerceEntity.ListName<Review>(), 0, int.MaxValue);
-            return (IEnumerable<Review>)((commerceList != null ? commerceList.Items.ToList<Review>() : (List<Review>)null) ?? new List<Review>());
+            return commerceList?.Items.ToList() ?? new List<Review>();
         }
 
         [HttpGet]
@@ -43,10 +43,10 @@
                 return reviewsController.NotFound();
             }
 
-            string entityId = $"{(object)CommerceEntity.IdPrefix<Review>()}{(object)id}";
+            string entityId = $"{CommerceEntity.IdPrefix<Review>()}{id}";
 
             CommerceEntity commerceEntity = await reviewsController.Command<FindEntityCommand>().Process(reviewsController.CurrentContext, typeof(Review), entityId, false);
-            return commerceEntity != null ? (IActionResult)new ObjectResult((object)(commerceEntity as Review)) : (IActionResult)reviewsController.NotFound();
+            return commerceEntity != null ? new ObjectResult(commerceEntity as Review) : (IActionResult)reviewsController.NotFound();
         }
     }
 }

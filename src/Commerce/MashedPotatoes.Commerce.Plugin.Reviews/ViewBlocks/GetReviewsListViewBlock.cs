@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
 using MashedPotatoes.Commerce.Plugin.Reviews.Policies;
 
 using Sitecore.Commerce.Core;
-using Sitecore.Commerce.Core.Commands;
 using Sitecore.Commerce.EntityViews;
 using Sitecore.Framework.Conditions;
 using Sitecore.Framework.Pipelines;
 
 namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
 {
-    [PipelineDisplayName("Reviews.block.getreviewslistview")]
+    [PipelineDisplayName("Reviews.block.GetReviewsListView")]
     public class GetReviewsListViewBlock : GetListViewBlock
     {
         private readonly IFindEntitiesInListPipeline findEntitiesInListPipeline;
@@ -37,7 +35,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                 || !entityViewArgument.ViewName.Equals(
                     context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsList,
                     StringComparison.OrdinalIgnoreCase) && !entityViewArgument.ViewName.Equals(
-                    context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard,
+                    context.GetPolicy<KnownReviewsViewsPolicy>().Reviews,
                     StringComparison.OrdinalIgnoreCase))
             {
                 return entityView;
@@ -45,7 +43,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
 
             EntityView reviews;
             if (entityViewArgument.ViewName.Equals(
-                context.GetPolicy<KnownReviewsViewsPolicy>().ReviewsDashboard,
+                context.GetPolicy<KnownReviewsViewsPolicy>().Reviews,
                 StringComparison.OrdinalIgnoreCase))
             {
                 EntityView reviewsEntityView = new EntityView { EntityId = string.Empty };
@@ -66,70 +64,80 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                                   new FindEntitiesInListArgument(
                                       typeof(Review),
                                       CommerceEntity.ListName<Review>(),
-                                          0,
-                                          Int32.MaxValue),
+                                      0,
+                                      int.MaxValue),
                                       context);
 
             reviewsEntities.List.Items.ForEach(
                 reviewEntity =>
-                    {
-                        var review = reviewEntity as Review;
+                {
+                    var review = reviewEntity as Review;
 
-                        EntityView entityView1 = new EntityView { EntityId = review.ProductReference.EntityTarget, ItemId = review.ProductReference.EntityTarget };
-                        string summary = context.GetPolicy<KnownReviewsViewsPolicy>().Summary;
-                        entityView1.Name = summary;
+                    EntityView entityView1 = new EntityView { EntityId = review.ProductReference.EntityTarget, ItemId = review.ProductReference.EntityTarget };
+                    string summary = context.GetPolicy<KnownReviewsViewsPolicy>().Summary;
+                    entityView1.Name = summary;
 
-                        EntityView entityView2 = entityView1;
+                    EntityView entityView2 = entityView1;
 
-                        List<ViewProperty> properties1 = entityView2.Properties;
-                        ViewProperty viewProperty1 = new ViewProperty
-                                                         {
-                                                             Name = "Product",
-                                                             DisplayName = "Product",
-                                                             Value = review.ProductReference.Name,
-                                                             UiType = "EntityLink"
-                                                         };
+                    List<ViewProperty> properties1 = entityView2.Properties;
+                    ViewProperty viewProperty1 = new ViewProperty
+                                                        {
+                                                            Name = "Product",
+                                                            DisplayName = "Product",
+                                                            Value = review.ProductReference.Name,
+                                                            UiType = "EntityLink"
+                                                        };
 
-                        properties1.Add(viewProperty1);
+                    properties1.Add(viewProperty1);
 
-                        List<ViewProperty> properties2 = entityView2.Properties;
-                        ViewProperty viewProperty2 = new ViewProperty
-                                                         {
-                                                             Name = "Score",
-                                                             DisplayName = "Score",
-                                                             Value = review.Score.ToString()
-                                                         };
+                    List<ViewProperty> properties2 = entityView2.Properties;
+                    ViewProperty viewProperty2 =
+                        new ViewProperty
+                            {
+                                Name = "Score",
+                                DisplayName = "Score",
+                                Value = review.Score.ToString()
+                            };
 
-                        properties2.Add(viewProperty2);
+                    properties2.Add(viewProperty2);
 
-                        List<ViewProperty> properties3 = entityView2.Properties;
-                        ViewProperty viewProperty3 =
-                            new ViewProperty
-                                {
-                                    Name = "Text",
-                                    DisplayName = "Text",
-                                    Value = review.Text
-                                };
+                    List<ViewProperty> properties3 = entityView2.Properties;
+                    ViewProperty viewProperty3 =
+                        new ViewProperty
+                            {
+                                Name = "Text",
+                                DisplayName = "Text",
+                                Value = review.Text
+                            };
 
-                        properties3.Add(viewProperty3);
+                    properties3.Add(viewProperty3);
 
-                        List<ViewProperty> properties4 = entityView2.Properties;
-                        ViewProperty viewProperty4 =
-                            new ViewProperty { Name = "Author", DisplayName = "Author", Value = review.DisplayName };
+                    List<ViewProperty> properties4 = entityView2.Properties;
+                    ViewProperty viewProperty4 =
+                        new ViewProperty
+                            {
+                                Name = "Author",
+                                DisplayName = "Author",
+                                Value = review.DisplayName
+                            };
 
-                        properties4.Add(viewProperty4);
+                    properties4.Add(viewProperty4);
 
-                        List<ViewProperty> properties5 = entityView2.Properties;
-                        ViewProperty viewProperty5 =
-                            new ViewProperty { Name = "Date", DisplayName = "Date", Value = review.DisplayName };
+                    List<ViewProperty> properties5 = entityView2.Properties;
+                    ViewProperty viewProperty5 =
+                        new ViewProperty
+                            {
+                                Name = "Date",
+                                DisplayName = "Date",
+                                Value = review.DisplayName
+                            };
 
-                        properties5.Add(viewProperty5);
+                    properties5.Add(viewProperty5);
 
-                        reviews.ChildViews.Add(entityView2);
-                    });
+                    reviews.ChildViews.Add(entityView2);
+                });
 
             return entityView;
         }
-
     }
 }

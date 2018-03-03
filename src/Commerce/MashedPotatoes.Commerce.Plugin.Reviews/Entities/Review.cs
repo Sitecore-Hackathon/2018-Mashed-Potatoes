@@ -53,11 +53,5 @@
         /// Gets or sets the ProductReference.
         /// </summary>
         public EntityReference ProductReference { get; set; }
-
-        ///// <summary>
-        ///// Gets or sets the list of child components in the SampleEntity
-        ///// </summary>
-        // [Contained]
-        // public IEnumerable<SampleComponent> ChildComponents { get; set; }
     }
 }

@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ConfigureServiceApiBlock.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace MashedPotatoes.Commerce.Plugin.Reviews
+﻿namespace MashedPotatoes.Commerce.Plugin.Reviews
 {
     using System.Threading.Tasks;
 

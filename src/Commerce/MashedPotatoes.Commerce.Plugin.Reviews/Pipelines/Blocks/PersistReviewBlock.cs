@@ -2,7 +2,6 @@
 
 namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
 {
-    using System;
     using System.Threading.Tasks;
 
     using Sitecore.Commerce.Core;
@@ -21,18 +20,19 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Blocks
     [PipelineDisplayName("Reviews.PersistReviewBlock")]
     public class PersistReviewBlock : PipelineBlock<Review, Review, CommercePipelineExecutionContext>
     {
-        private readonly IPersistEntityPipeline _persistEntityPipeline;
+        private readonly IPersistEntityPipeline persistEntityPipeline;
 
         public PersistReviewBlock(IPersistEntityPipeline persistEntityPipeline) : base()
         {
-            this._persistEntityPipeline = persistEntityPipeline;
+            this.persistEntityPipeline = persistEntityPipeline;
         }
 
         public override async Task<Review> Run(Review review, CommercePipelineExecutionContext context)
         {
-            PersistReviewBlock persistCouponBlock = this;
-            Condition.Requires(review).IsNotNull("The Coupon can not be null");
-            PersistEntityArgument persistEntityArgument = await persistCouponBlock._persistEntityPipeline.Run(new PersistEntityArgument(review), context);
+            PersistReviewBlock persistReviewBlock = this;
+            Condition.Requires(review).IsNotNull("The Review can not be null");
+            await persistReviewBlock.persistEntityPipeline.Run(new PersistEntityArgument(review), context);
+
             return review;
         }
     }

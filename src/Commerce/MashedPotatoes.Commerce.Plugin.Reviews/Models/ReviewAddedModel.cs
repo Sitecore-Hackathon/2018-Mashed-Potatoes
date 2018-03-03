@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="SampleModel.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace MashedPotatoes.Commerce.Plugin.Reviews.Models
+﻿namespace MashedPotatoes.Commerce.Plugin.Reviews.Models
 {
     using Sitecore.Commerce.Core;
 

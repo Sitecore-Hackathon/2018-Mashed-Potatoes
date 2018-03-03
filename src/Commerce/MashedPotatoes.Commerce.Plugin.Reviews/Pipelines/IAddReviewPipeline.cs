@@ -1,10 +1,4 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ISamplePipeline.cs" company="Sitecore Corporation">
-//   Copyright (c) Sitecore Corporation 1999-2017
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
-namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines
+﻿namespace MashedPotatoes.Commerce.Plugin.Reviews.Pipelines
 {
     using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;

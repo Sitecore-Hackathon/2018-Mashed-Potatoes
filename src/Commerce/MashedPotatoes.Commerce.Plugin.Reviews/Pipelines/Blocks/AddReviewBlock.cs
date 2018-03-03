@@ -4,22 +4,20 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    using Sitecore.Commerce.Core;
     using MashedPotatoes.Commerce.Plugin.Reviews.Entities;
     using MashedPotatoes.Commerce.Plugin.Reviews.Models;
     using MashedPotatoes.Commerce.Plugin.Reviews.Pipelines.Arguments;
+
+    using Sitecore.Commerce.Core;
+    using Sitecore.Commerce.Plugin.ManagedLists;
     using Sitecore.Framework.Conditions;
     using Sitecore.Framework.Pipelines;
-    using Sitecore.Commerce.Plugin.ManagedLists;
 
     [PipelineDisplayName("Reviews.AddReviewBlock")]
     public class AddReviewBlock : PipelineBlock<AddReviewArgument, Review, CommercePipelineExecutionContext>
     {
-        private readonly IFindEntityPipeline findEntityPipeline;
-
-        public AddReviewBlock(IFindEntityPipeline findEntityPipeline) : base()
+        public AddReviewBlock() : base()
         {
-            this.findEntityPipeline = findEntityPipeline;
         }
 
         /// <summary>
@@ -38,19 +36,21 @@
         {
             AddReviewBlock addReviewBlock = this;
 
-            Condition.Requires(arg).IsNotNull<AddReviewArgument>(string.Format("{0}: The block argument cannot be null.", addReviewBlock.Name));
+            Condition.Requires(arg).IsNotNull($"{addReviewBlock.Name}: The block argument cannot be null.");
 
             string reviewId = Guid.NewGuid().ToString();
 
-            Review review = new Review();
-            review.Id = $"{(object)CommerceEntity.IdPrefix<Review>()}{(object)reviewId}";
-            review.Text = arg.ReviewsText;
-            review.Author = arg.Author;
-            review.Score = arg.Score;
+            Review review = new Review
+                                {
+                                    Id = $"{CommerceEntity.IdPrefix<Review>()}{reviewId}",
+                                    Text = arg.ReviewsText,
+                                    Author = arg.Author,
+                                    Score = arg.Score
+                                };
 
-            DateTimeOffset? dateCreated = new DateTimeOffset?(DateTimeOffset.UtcNow);
+            DateTimeOffset? dateCreated = DateTimeOffset.UtcNow;
             review.DateCreated = dateCreated;
-            DateTimeOffset? dateUpdated = new DateTimeOffset?(DateTimeOffset.UtcNow);
+            DateTimeOffset? dateUpdated = DateTimeOffset.UtcNow;
             review.DateUpdated = dateUpdated;
 
             CommerceContext commerceContextRef = context.CommerceContext;
@@ -73,13 +73,12 @@
                   }
             });
 
-            ReviewAddedModel reviewAdded = new ReviewAddedModel(review.FriendlyId);
-            reviewAdded.Name = name;
-            commerceContextRef.AddModel((Model)reviewAdded);
+            ReviewAddedModel reviewAdded = new ReviewAddedModel(review.FriendlyId) { Name = name };
+            commerceContextRef.AddModel(reviewAdded);
 
-            context.CommerceContext.AddUniqueObjectByType((object)arg);
+            context.CommerceContext.AddUniqueObjectByType(arg);
 
-            string str = await context.CommerceContext.AddMessage(context.GetPolicy<KnownResultCodes>().Information, (string)null, (object[])null, string.Format("Generated unallocated review"));
+            await context.CommerceContext.AddMessage(context.GetPolicy<KnownResultCodes>().Information, null, null, "Generated unallocated review");
 
             return review;
         }
