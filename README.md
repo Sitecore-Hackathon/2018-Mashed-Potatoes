@@ -29,7 +29,7 @@ The compiled solution is ready to deploy to Commerce Authoring service.
 ### Web site
 To add reviews to your site use the following renderins:
 /sitecore/layout/Renderings/Feature/MashedPotatoes/Feature/Reviews/Submit Review - to add and submit reviews
-/sitecore/layout/Renderings/Feature/MashedPotatoes/Feature/Reviews/Reviews - to display rewiews (does not work yet)
+/sitecore/layout/Renderings/Feature/MashedPotatoes/Feature/Reviews/Reviews - to display rewiews (in progress)
 
 ![sxa renderings params](documentation/images/sxa-renderings-params.png?raw=true "sxa renderings params")
 
