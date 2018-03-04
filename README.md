@@ -11,7 +11,7 @@ Module extends Sitecore Commerce Engine capabilities.
 
 Sitecore Commerce
 
-##Prerequisites
+## Prerequisites
 
 Solution includes default Commerce Engine SDK projects: Plugin.Sample.AdventureWorks, Plugin.Sample.Habitat, Plugin.Sample.Upgrade.
 As default installation has strong dependencies on this projects through configuration files we have considered to include them into repository.
@@ -24,30 +24,30 @@ The compiled solution is ready to deploy to Commerce Authoring service.
  - restore nuget packages for the solution
  - deploy Sitecore.Commerce.Engine project to your local Sitecore Commerce Authoring service
  
-## Entry Submission Requirements
+## Module usage
 
-All teams are required to submit the following as part of their entry submission on or before the end of the Hackathon on **Saturday March 3rd 2018 at 8PM EST**. The modules should be based on [Sitecore 9.0 rev. 171219 (Update-1)](https://dev.sitecore.net/Downloads/Sitecore_Experience_Platform/90/Sitecore_Experience_Platform_90_Update1.aspx).
+### Web site
+To add reviews to your site use the following renderins:
+/sitecore/layout/Renderings/Feature/MashedPotatoes/Feature/Reviews/Submit Review - to add and submit reviews
+/sitecore/layout/Renderings/Feature/MashedPotatoes/Feature/Reviews/Reviews - to display rewiews (does not work yet)
 
-**Failure to meet any of the requirements will result in automatic disqualification.** Please reach out to any of the organisers or judges if you require any clarification.
+![sxa renderings params](documentation/images/sxa-renderings-params.png?raw=true "sxa renderings params")
 
-- Sitecore 9.0 Update 1 Module (Module install package)
-   - An installation Sitecore Package (`.zip` or `.update`)
+![product reviews rendering](documentation/images/product-reviews-rendering.png?raw=true "product reviews rendering")
 
-- Module code in a public Git source repository. We will be judging (amongst other things):
-  - Cleanliness of code
-  - Commenting where necessary
-  - Code Structure
-  - Standard coding standards & naming conventions
+Here is the form to add reviews. You can fill out fields and submit your review.
 
-- Precise and Clear Installation Instructions document (1 – 2 pages)
-- Module usage documentation on [Readme.md](documentation) file on the Git Repository (2 – 5 pages)
-  - Module Purpose
-  - Module Sitecore Hackathon Category
-  - How does the end user use the Module?
-  - Screenshots, etc.
+![product details review form](documentation/images/product-details-review-form.png?raw=true "product details review form")
 
-- Create a 2 – 10 minutes video explaining the module’s functionality (A link to youtube video)
+### Sitecore admin panel
+You can also see reviews in Sitecore Commerce Business Tools. To do this open Commerce Business Tools. 
+You will see new tab called Reviews. 
 
-  - What problem was solved
-  - How did you solve it
-  - What is the end result
+![sitecore commerce biz reviews](documentation/images/sitecore-commerce-biz-reviews.png?raw=true "sitecore commerce biz reviews")
+
+If you click on the reviews tab, you will be able to see all reviews for all products. 
+Moreover, you can click on the product link and you will be redirected directly on the producr page.
+![reviews all engine view](documentation/images/reviews-all-engine-view.png?raw=true "reviews all engine view")
+
+On the product page you will see reviews only for current project.
+![product review view](documentation/images/product-review-view.png?raw=true "product review view")
