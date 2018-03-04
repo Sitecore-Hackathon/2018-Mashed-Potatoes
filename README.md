@@ -46,8 +46,11 @@ You will see new tab called Reviews.
 ![sitecore commerce biz reviews](documentation/images/sitecore-commerce-biz-reviews.png?raw=true "sitecore commerce biz reviews")
 
 If you click on the reviews tab, you will be able to see all reviews for all products. 
-Moreover, you can click on the product link and you will be redirected directly on the producr page.
+Moreover, you can click on the product link and you will be redirected directly on the product page.
 ![reviews all engine view](documentation/images/reviews-all-engine-view.png?raw=true "reviews all engine view")
 
-On the product page you will see reviews only for current project.
+On the product page you will see reviews only for current product.
 ![product review view](documentation/images/product-review-view.png?raw=true "product review view")
+
+## Video
+Video can be found here https://www.youtube.com/watch?v=bZgRxDJDLLo
