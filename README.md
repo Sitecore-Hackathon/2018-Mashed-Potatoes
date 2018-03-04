@@ -4,7 +4,7 @@
 
 ## Module Purpose
 
-One of the must have features of any commerce website is customer's reviews for the product. Our module allows to provide feedback using simple form on the product page.
+One of the must have features of any commerce website is customer's reviews for the product. The module gives possibility to provide feedback using simple form on the product page.
 Module extends Sitecore Commerce Engine capabilities.
 
 ## Module Sitecore Hackathon Category
