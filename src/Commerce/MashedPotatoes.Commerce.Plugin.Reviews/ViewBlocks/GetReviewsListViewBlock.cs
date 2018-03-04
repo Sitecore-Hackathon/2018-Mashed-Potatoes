@@ -118,7 +118,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                             {
                                 Name = "Author",
                                 DisplayName = "Author",
-                                Value = review.DisplayName
+                                Value = review.Author
                             };
 
                     properties4.Add(viewProperty4);
@@ -129,7 +129,7 @@ namespace MashedPotatoes.Commerce.Plugin.Reviews.ViewBlocks
                             {
                                 Name = "Date",
                                 DisplayName = "Date",
-                                Value = review.DisplayName
+                                Value = review.DateCreated?.Date.ToLongDateString()
                             };
 
                     properties5.Add(viewProperty5);
