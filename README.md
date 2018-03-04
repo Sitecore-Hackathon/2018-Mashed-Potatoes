@@ -14,7 +14,7 @@ Sitecore Commerce
 ## Prerequisites
 
 Solution includes default Commerce Engine SDK projects: Plugin.Sample.AdventureWorks, Plugin.Sample.Habitat, Plugin.Sample.Upgrade.
-As default installation has strong dependencies on this projects through configuration files we have considered to include them into repository.
+As default installation has strong dependencies on these projects through configuration files we have considered to include them into repository.
 The compiled solution is ready to deploy to Commerce Authoring service.
 
 Solution depends on the Sitecore SXA Storefront Demo site. 
